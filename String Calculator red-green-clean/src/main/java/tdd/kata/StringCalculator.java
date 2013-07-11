@@ -1,5 +1,7 @@
 package tdd.kata;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -9,15 +11,29 @@ import java.util.regex.Pattern;
  */
 public class StringCalculator
 {
-    public static String DEFAULT_DELIMITERS = ",|\n";
-    public int add(String numbers){
+    public static final String DEFAULT_DELIMITERS = ",|\n";
+    public static final String DELIMITER_PATTERN = "//(.)\n(.*)";
+    public int add(String numbers) throws Exception
+    {
         if(numbers.isEmpty())
             return 0;
         else {
             String[] number = tokenizer(numbers);
             int total = 0;
+            int temp;
+            List<Integer> negativeNumber = new ArrayList<Integer>();
             for(int i=0; i< number.length; i++){
-                total += convertString2Int(number[i]);
+                temp = convertString2Int(number[i]);
+                if (temp < 0)
+                {
+                    negativeNumber.add(temp);
+                }
+                else if(temp > 1000) {
+                }
+                else total += temp;
+            }
+            if(negativeNumber.size()>0) {
+                throw new Exception("negatives not allowed:" + negativeNumber.toString());
             }
             return total;
         }
@@ -33,7 +49,7 @@ public class StringCalculator
     }
     private String[] splitNumbersWithCustomDelimiter(String numbers)
     {
-        Pattern pattern = Pattern.compile("//(.)\n(.*)");
+        Pattern pattern = Pattern.compile(DELIMITER_PATTERN);
         Matcher m = pattern.matcher(numbers);
         if(m.matches()) {
             String delimiter = m.group(1);
