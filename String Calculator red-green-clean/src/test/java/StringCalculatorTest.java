@@ -21,4 +21,15 @@ public class StringCalculatorTest
         assertEquals(0,stringCalculator.add(""));
 
     }
+
+    @Test
+    public void testWithOneNumber() throws Exception
+    {
+        assertEquals(1, stringCalculator.add("1"));
+    }
+    @Test
+    public void testWithTwoNumber() throws Exception
+    {
+        assertEquals(3,stringCalculator.add("1,2"));
+    }
 }
