@@ -42,4 +42,10 @@ public class StringCalculatorTest
     {
         assertEquals(6,stringCalculator.add("1\n2,3"));
     }
+    @Test
+    public void testWithCustomDelimiter()throws Exception
+    {
+        assertEquals(3,stringCalculator.add("//;\n1;2"));
+
+    }
 }
