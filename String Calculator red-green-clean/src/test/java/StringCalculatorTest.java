@@ -32,4 +32,14 @@ public class StringCalculatorTest
     {
         assertEquals(3,stringCalculator.add("1,2"));
     }
+    @Test
+    public void testWithMultipleNumber() throws Exception
+    {
+        assertEquals(10,stringCalculator.add("3,3,3,1"));
+    }
+    @Test
+    public void testWithNewlineBetweenNumbers() throws Exception
+    {
+        assertEquals(6,stringCalculator.add("1\n2,3"));
+    }
 }
