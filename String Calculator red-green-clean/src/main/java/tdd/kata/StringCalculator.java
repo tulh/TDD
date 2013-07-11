@@ -1,12 +1,15 @@
 package tdd.kata;
 
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+
 /**
  * User: Tu
  * Date: 7/11/13
  */
 public class StringCalculator
 {
-    public static String DELIMITERS = ",|\n";
+    public static String DEFAULT_DELIMITERS = ",|\n";
     public int add(String numbers){
         if(numbers.isEmpty())
             return 0;
@@ -23,7 +26,16 @@ public class StringCalculator
 
     private String[] tokenizer(String numbers)
     {
-        return numbers.split(DELIMITERS);
+        if(numbers.startsWith("//")) {
+            Pattern pattern = Pattern.compile("//(.)\n(.*)");
+            Matcher m = pattern.matcher(numbers);
+            if(m.matches()) {
+                String delimiter = m.group(1);
+                String number = m.group(2);
+                return number.split(delimiter);
+            }
+        }
+         else return numbers.split(DEFAULT_DELIMITERS);
     }
 
     private int convertString2Int(String number)
