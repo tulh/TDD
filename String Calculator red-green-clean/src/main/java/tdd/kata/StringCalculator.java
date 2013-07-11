@@ -27,17 +27,21 @@ public class StringCalculator
     private String[] tokenizer(String numbers)
     {
         if(numbers.startsWith("//")) {
-            Pattern pattern = Pattern.compile("//(.)\n(.*)");
-            Matcher m = pattern.matcher(numbers);
-            if(m.matches()) {
-                String delimiter = m.group(1);
-                String number = m.group(2);
-                return number.split(delimiter);
-            }
+            return splitNumbersWithCustomDelimiter(numbers);
         }
-         else return numbers.split(DEFAULT_DELIMITERS);
+        return numbers.split(DEFAULT_DELIMITERS);
     }
-
+    private String[] splitNumbersWithCustomDelimiter(String numbers)
+    {
+        Pattern pattern = Pattern.compile("//(.)\n(.*)");
+        Matcher m = pattern.matcher(numbers);
+        if(m.matches()) {
+            String delimiter = m.group(1);
+            String number = m.group(2);
+            return number.split(delimiter);
+        }
+        else return null;
+    }
     private int convertString2Int(String number)
     {
         return Integer.parseInt(number);
