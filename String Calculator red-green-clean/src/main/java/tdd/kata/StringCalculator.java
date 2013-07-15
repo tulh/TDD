@@ -12,7 +12,9 @@ import java.util.regex.Pattern;
 public class StringCalculator
 {
     public static final String DEFAULT_DELIMITERS = ",|\n";
-    public static final String DELIMITER_PATTERN = "//(.)\n(.*)";
+    public static final String DELIMITER_PATTERN = "//((.)|(\\[.*\\])*)\\n";
+    public static final int MAX_VALUE = 1000;
+
     public int add(String numbers) throws Exception
     {
         if(numbers.isEmpty())
@@ -28,7 +30,7 @@ public class StringCalculator
                 {
                     negativeNumber.add(temp);
                 }
-                else if(temp > 1000) {
+                else if(temp > MAX_VALUE) {
                 }
                 else total += temp;
             }
@@ -51,12 +53,26 @@ public class StringCalculator
     {
         Pattern pattern = Pattern.compile(DELIMITER_PATTERN);
         Matcher m = pattern.matcher(numbers);
-        if(m.matches()) {
-            String delimiter = m.group(1);
-            String number = m.group(2);
-            return number.split(delimiter);
+        String delimiters ="";
+        StringBuilder tString = new StringBuilder(numbers);
+        String[] arrDelimiters = new String[0];
+        if (m.find())
+        {
+            tString.delete(0, tString.length());
+            tString.append(numbers.replace(m.group(0), ""));
+            delimiters = m.group(1);
+            if (delimiters.length() > 1)
+            {
+                delimiters = delimiters.substring(1, delimiters.length() - 1);
+            }
+            arrDelimiters = delimiters.split("\\]\\[");
         }
-        else return null;
+        String result = "";
+        for(int i=0; i< arrDelimiters.length;i++)
+        {
+            result += Pattern.quote(arrDelimiters[i]) + "|";
+        }
+        return tString.toString().split(result.substring(0,result.length()-1));
     }
     private int convertString2Int(String number)
     {

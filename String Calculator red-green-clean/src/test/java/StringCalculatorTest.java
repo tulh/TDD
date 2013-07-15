@@ -45,7 +45,7 @@ public class StringCalculatorTest
     @Test
     public void testWithCustomDelimiter()throws Exception
     {
-        assertEquals(3,stringCalculator.add("//.\n1.2"));
+        assertEquals(3,stringCalculator.add("//;\n1;2"));
 
     }
     @Test
@@ -72,7 +72,7 @@ public class StringCalculatorTest
     @Test
     public void testWithMultipleDelimiter()throws Exception
     {
-        assertEquals(stringCalculator.add("//[**][%%%%%]\\n1*2%3"),6);
+        assertEquals(stringCalculator.add("//[*][%]\n1*2%3"),6);
     }
 
 }
