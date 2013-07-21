@@ -12,7 +12,10 @@ public class StringCalculator
         {
             return 0;
         }
-        return -1;
+        else
+        {
+            return Integer.parseInt(numbers);
+        }
     }
 
 }
