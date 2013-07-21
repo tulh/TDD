@@ -14,8 +14,13 @@ public class StringCalculator
         }
         else
         {
-            return Integer.parseInt(numbers);
+            return string2IntConverter(numbers);
         }
+    }
+
+    private int string2IntConverter(String numbers)
+    {
+        return Integer.parseInt(numbers);
     }
 
 }
