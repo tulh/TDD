@@ -6,7 +6,7 @@ package com.kata.stringcalculator;
  */
 public class StringCalculator
 {
-    private static final String DELIMITER = ",";
+    private static final String DELIMITER = ",|\n";
     public int add(String numbers)
     {
         if(numbers.isEmpty())
