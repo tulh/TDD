@@ -29,4 +29,10 @@ public class TestStringCalculator
     {
         assertEquals(stringCalculator.add("1"),1);
     }
+
+    @Test
+    public void testWithInputTwoNumbers() throws Exception
+    {
+        assertEquals(stringCalculator.add("1,2"),3);
+    }
 }
