@@ -6,6 +6,7 @@ package com.kata.stringcalculator;
  */
 public class StringCalculator
 {
+    private static final String DELIMITER = ",";
     public int add(String numbers)
     {
         if(numbers.isEmpty())
@@ -14,7 +15,7 @@ public class StringCalculator
         }
         else
         {
-            String [] arrayNumber = numbers.split(",");
+            String [] arrayNumber = numbers.split(DELIMITER);
             int total = 0;
             for(int i=0; i<arrayNumber.length; i++)
             {
