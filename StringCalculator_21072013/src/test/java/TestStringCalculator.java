@@ -6,6 +6,7 @@ import org.junit.Test;
  * User: Tu
  * Date: 7/22/13
  */
+import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
 
 public class TestStringCalculator
@@ -21,6 +22,11 @@ public class TestStringCalculator
     public void testWithInputBlankString() throws Exception
     {
         assertTrue(stringCalculator.add("")==0);
+    }
 
+    @Test
+    public void testWithInputOneNumber() throws Exception
+    {
+        assertEquals(stringCalculator.add("1"),1);
     }
 }
