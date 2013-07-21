@@ -14,7 +14,14 @@ public class StringCalculator
         }
         else
         {
-            return string2IntConverter(numbers);
+            String [] arrayNumber = numbers.split(",");
+            int total = 0;
+            for(int i=0; i<arrayNumber.length; i++)
+            {
+                total += string2IntConverter(arrayNumber[i]);
+
+            }
+            return total;
         }
     }
 
