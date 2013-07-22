@@ -12,7 +12,7 @@ import java.util.regex.Pattern;
 public class StringCalculator
 {
     private static final String DEFAULT_DELIMITER = ",|\n";
-    private static final String DELIMITER_PATTERN = "//(.)\n(.*)";
+    private static final String DELIMITER_PATTERN = "//((.)|(\\[.*\\])*)\\n";
     private static final String CUSTOMIZED_DELIMITER_INDICATOR = "//";
     private static final Integer MAX_VALUE = 1000;
 
@@ -73,10 +73,19 @@ public class StringCalculator
         {
             Pattern p = Pattern.compile(DELIMITER_PATTERN);
             Matcher m = p.matcher(numbers);
-            m.matches();
-            String delimiter = m.group(1);
-            String number = m.group(2);
-            return number.split(delimiter);
+            String delimiters = "";
+            StringBuilder tString = new StringBuilder(numbers);
+            if (m.find())
+            {
+                tString.delete(0, tString.length());
+                tString.append(numbers.replace(m.group(0), ""));
+                delimiters = m.group(1);
+                if (delimiters.length() > 1)
+                {
+                    delimiters = delimiters.substring(1, delimiters.length() - 1);
+                }
+            }
+            return tString.toString().split(Pattern.quote(delimiters));
         }
         return numbers.split(DEFAULT_DELIMITER);
     }
