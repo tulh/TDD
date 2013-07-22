@@ -34,10 +34,10 @@ public class StringCalculator
                 {
                     negativeNumber.add(temp);
                 }
-//                else if(temp > MAX_VALUE)
-//                {
-//                    //do nothing
-//                }
+                else if(temp > MAX_VALUE)
+                {
+                    //do nothing
+                }
                 else total += temp;
             }
             if(negativeNumber.size() > 0)
