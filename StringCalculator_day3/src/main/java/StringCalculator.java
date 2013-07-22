@@ -5,6 +5,8 @@
 public class StringCalculator
 {
     public static final String DELIMITERS = "(,|\n|;|\\*|\\]|\\[|\\/)";
+    public static final int MAX_VALUE = 1000;
+
     public int add(String numbers) throws Exception
     {
         if (numbers.trim().equals(""))

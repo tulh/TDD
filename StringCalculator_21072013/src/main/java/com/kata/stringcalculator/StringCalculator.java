@@ -7,12 +7,13 @@ import java.util.regex.Pattern;
 
 /**
  * User: Tu
- * Date: 7/22/13
+ * Date: 7/21/13
  */
 public class StringCalculator
 {
     private static final String DEFAULT_DELIMITER = ",|\n";
     private static final String DELIMITER_PATTERN = "//(.)\n(.*)";
+    private static final String CUSTOMIZED_DELIMITER_INDICATOR = "//";
     private static final Integer MAX_VALUE = 1000;
 
     public int add(String numbers) throws Exception
@@ -30,17 +31,20 @@ public class StringCalculator
             for (int i = 0; i < arrayNumber.length; i++)
             {
                 temp = string2IntConverter(arrayNumber[i]);
-                if(temp < 0)
+                if (temp < 0)
                 {
                     negativeNumber.add(temp);
                 }
-                else if(temp > MAX_VALUE)
+                else if (temp > MAX_VALUE)
                 {
                     //do nothing
                 }
-                else total += temp;
+                else
+                {
+                    total += temp;
+                }
             }
-            if(negativeNumber.size() > 0)
+            if (negativeNumber.size() > 0)
             {
                 throw new Exception("negatives not allowed " + listToString(negativeNumber));
             }
@@ -51,12 +55,13 @@ public class StringCalculator
     private String listToString(List<Integer> source)
     {
         String target = "";
-        for(Integer i: source)
+        for (Integer i : source)
         {
             target += i + " ";
         }
         return target;
     }
+
     private int string2IntConverter(String numbers) throws NumberFormatException
     {
         return Integer.parseInt(numbers);
@@ -64,7 +69,8 @@ public class StringCalculator
 
     private String[] tokenizer(String numbers)
     {
-        if(numbers.startsWith("//")) {
+        if (numbers.startsWith(CUSTOMIZED_DELIMITER_INDICATOR))
+        {
             Pattern p = Pattern.compile(DELIMITER_PATTERN);
             Matcher m = p.matcher(numbers);
             m.matches();
