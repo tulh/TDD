@@ -48,4 +48,10 @@ public class TestStringCalculator
         stringCalculator.add("1n,\n");
         fail("For input string: \"1n\"");
     }
+
+    @Test
+    public void testWithCustomDelimiter() throws Exception
+    {
+        assertEquals(stringCalculator.add("//;\n1;2"),3);
+    }
 }
