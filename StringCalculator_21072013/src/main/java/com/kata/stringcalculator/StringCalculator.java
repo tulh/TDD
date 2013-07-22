@@ -19,18 +19,7 @@ public class StringCalculator
         }
         else
         {
-            String[] arrayNumber;
-            if(numbers.startsWith("//"))
-            {
-                Pattern p = Pattern.compile(DELIMITER_PATTERN);
-                Matcher m = p.matcher(numbers);
-                m.matches();
-                String delimiter = m.group(1);
-                String number = m.group(2);
-                arrayNumber = number.split(delimiter);
-
-            }
-            else arrayNumber = numbers.split(DEFAULT_DELIMITER);
+            String[] arrayNumber = tokenizer(numbers);
             int total = 0;
             for (int i = 0; i < arrayNumber.length; i++)
             {
@@ -45,4 +34,16 @@ public class StringCalculator
         return Integer.parseInt(numbers);
     }
 
+    private String[] tokenizer(String numbers)
+    {
+        if(numbers.startsWith("//")) {
+            Pattern p = Pattern.compile(DELIMITER_PATTERN);
+            Matcher m = p.matcher(numbers);
+            m.matches();
+            String delimiter = m.group(1);
+            String number = m.group(2);
+            return number.split(delimiter);
+        }
+        return numbers.split(DEFAULT_DELIMITER);
+    }
 }
