@@ -82,6 +82,7 @@ public class StringCalculator
         Matcher m = p.matcher(numbers);
         String delimiters = "";
         StringBuilder tString = new StringBuilder(numbers);
+        String[] arrDelimiters = new String[0];
         if (m.find())
         {
             tString.delete(0, tString.length());
@@ -91,7 +92,14 @@ public class StringCalculator
             {
                 delimiters = delimiters.substring(1, delimiters.length() - 1);
             }
+            arrDelimiters = delimiters.split("\\]\\[");
         }
-        return tString.toString().split(Pattern.quote(delimiters));
+        String toSplit = "";
+        for (int i = 0; i < arrDelimiters.length; i++)
+        {
+            toSplit += Pattern.quote(arrDelimiters[i]) + "|";
+
+        }
+        return tString.toString().split(toSplit.substring(0,toSplit.length()-1));
     }
 }
