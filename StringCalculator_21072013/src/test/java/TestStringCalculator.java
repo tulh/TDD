@@ -2,12 +2,12 @@ import com.kata.stringcalculator.StringCalculator;
 import org.junit.Before;
 import org.junit.Test;
 
+import static org.junit.Assert.*;
+
 /**
  * User: Tu
  * Date: 7/22/13
  */
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertTrue;
 
 public class TestStringCalculator
 {
@@ -40,5 +40,12 @@ public class TestStringCalculator
     public void testWithNewLineBetweenNumbers() throws Exception
     {
         assertEquals(stringCalculator.add("1\n2,3"),6);
+    }
+
+    @Test (expected = NumberFormatException.class)
+    public void testWithInvalidInput() throws Exception
+    {
+        stringCalculator.add("1n,\n");
+        fail("For input string: \"1n\"");
     }
 }

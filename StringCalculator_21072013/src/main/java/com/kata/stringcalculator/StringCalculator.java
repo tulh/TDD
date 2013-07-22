@@ -7,26 +7,26 @@ package com.kata.stringcalculator;
 public class StringCalculator
 {
     private static final String DELIMITER = ",|\n";
+
     public int add(String numbers)
     {
-        if(numbers.isEmpty())
+        if (numbers.isEmpty())
         {
             return 0;
         }
         else
         {
-            String [] arrayNumber = numbers.split(DELIMITER);
+            String[] arrayNumber = numbers.split(DELIMITER);
             int total = 0;
-            for(int i=0; i<arrayNumber.length; i++)
+            for (int i = 0; i < arrayNumber.length; i++)
             {
                 total += string2IntConverter(arrayNumber[i]);
-
             }
             return total;
         }
     }
 
-    private int string2IntConverter(String numbers)
+    private int string2IntConverter(String numbers) throws NumberFormatException
     {
         return Integer.parseInt(numbers);
     }
