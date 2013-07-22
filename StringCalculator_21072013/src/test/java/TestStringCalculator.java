@@ -67,4 +67,10 @@ public class TestStringCalculator
     {
         assertEquals(stringCalculator.add("1001,2"),2);
     }
+
+    @Test
+    public void testWithUnpredictableLength() throws Exception
+    {
+        assertEquals(stringCalculator.add("//[***]\n1***2***3"),6);
+    }
 }
