@@ -71,22 +71,27 @@ public class StringCalculator
     {
         if (numbers.startsWith(CUSTOMIZED_DELIMITER_INDICATOR))
         {
-            Pattern p = Pattern.compile(DELIMITER_PATTERN);
-            Matcher m = p.matcher(numbers);
-            String delimiters = "";
-            StringBuilder tString = new StringBuilder(numbers);
-            if (m.find())
-            {
-                tString.delete(0, tString.length());
-                tString.append(numbers.replace(m.group(0), ""));
-                delimiters = m.group(1);
-                if (delimiters.length() > 1)
-                {
-                    delimiters = delimiters.substring(1, delimiters.length() - 1);
-                }
-            }
-            return tString.toString().split(Pattern.quote(delimiters));
+            return splitCustomizableDelimiters(numbers);
         }
         return numbers.split(DEFAULT_DELIMITER);
+    }
+
+    private String[] splitCustomizableDelimiters(String numbers)
+    {
+        Pattern p = Pattern.compile(DELIMITER_PATTERN);
+        Matcher m = p.matcher(numbers);
+        String delimiters = "";
+        StringBuilder tString = new StringBuilder(numbers);
+        if (m.find())
+        {
+            tString.delete(0, tString.length());
+            tString.append(numbers.replace(m.group(0), ""));
+            delimiters = m.group(1);
+            if (delimiters.length() > 1)
+            {
+                delimiters = delimiters.substring(1, delimiters.length() - 1);
+            }
+        }
+        return tString.toString().split(Pattern.quote(delimiters));
     }
 }
