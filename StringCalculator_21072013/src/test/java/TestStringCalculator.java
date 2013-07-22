@@ -73,4 +73,10 @@ public class TestStringCalculator
     {
         assertEquals(stringCalculator.add("//[***]\n1***2***3"),6);
     }
+
+    @Test
+    public void testWithMultipleDelimiter() throws Exception
+    {
+        assertEquals(stringCalculator.add("//[*][%]\n1*2%3"),6);
+    }
 }
