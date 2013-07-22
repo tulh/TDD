@@ -55,10 +55,16 @@ public class TestStringCalculator
         assertEquals(stringCalculator.add("//;\n1;2"),3);
     }
 
-    @Test
+    @Test (expected = Exception.class)
     public void testWithNegativeNumber()throws Exception
     {
             stringCalculator.add("-1,-2,3");
             fail("Exception with negative number");
+    }
+
+    @Test
+    public void testWithNumberGreaterThan1000() throws Exception
+    {
+        assertEquals(stringCalculator.add("1001,2"),2);
     }
 }

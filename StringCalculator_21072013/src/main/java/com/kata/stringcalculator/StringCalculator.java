@@ -13,6 +13,8 @@ public class StringCalculator
 {
     private static final String DEFAULT_DELIMITER = ",|\n";
     private static final String DELIMITER_PATTERN = "//(.)\n(.*)";
+    private static final Integer MAX_VALUE = 1000;
+
     public int add(String numbers) throws Exception
     {
         if (numbers.isEmpty())
@@ -32,6 +34,10 @@ public class StringCalculator
                 {
                     negativeNumber.add(temp);
                 }
+//                else if(temp > MAX_VALUE)
+//                {
+//                    //do nothing
+//                }
                 else total += temp;
             }
             if(negativeNumber.size() > 0)
