@@ -66,8 +66,15 @@ public class TestBankAccount
         bankAccountService.deposit(accountNumber, 500.0,"add 500$");
         verify(bankAccountDAO,times(1)).save(bankAccountArgumentCaptor.capture());
 
+        //add 1st time 500$
         bankAccountService.getAccount(accountNumber);
         assertEquals(500.0, bankAccountArgumentCaptor.getValue().getBalance());
+
+        //add more 2nd time 1000$
+        bankAccountService.deposit(accountNumber, 1000.0,"add 1000$");
+        verify(bankAccountDAO,times(2)).save(bankAccountArgumentCaptor.capture());
+        assertEquals(1500.0, bankAccountArgumentCaptor.getValue().getBalance());
+
     }
 
 }
