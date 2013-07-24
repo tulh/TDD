@@ -1,6 +1,6 @@
 package com.kata.bankaccount.dao;
 
-import com.kata.bankaccount.BankAccount;
+import com.kata.bankaccount.model.BankAccount;
 
 /**
  * User: Tu

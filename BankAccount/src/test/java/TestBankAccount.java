@@ -1,4 +1,4 @@
-import com.kata.bankaccount.BankAccount;
+import com.kata.bankaccount.model.BankAccount;
 import com.kata.bankaccount.dao.BankAccountDAO;
 import com.kata.bankaccount.service.BankAccountService;
 import org.junit.Before;

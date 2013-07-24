@@ -1,4 +1,4 @@
-package com.kata.bankaccount;
+package com.kata.bankaccount.model;
 
 import java.util.Calendar;
 

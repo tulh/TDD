@@ -1,6 +1,6 @@
 package com.kata.bankaccount.service;
 
-import com.kata.bankaccount.BankAccount;
+import com.kata.bankaccount.model.BankAccount;
 import com.kata.bankaccount.dao.BankAccountDAO;
 
 /**
