@@ -11,8 +11,7 @@ import org.mockito.stubbing.Answer;
 import java.util.Calendar;
 
 import static junit.framework.Assert.assertEquals;
-import static org.mockito.Mockito.mock;
-import static org.mockito.Mockito.verify;
+import static org.mockito.Mockito.*;
 
 /**
  * User: Tu
@@ -28,13 +27,6 @@ public class TestBankAccount
     @Before
     public void setup()
     {
-        Mockito.when(bankAccountDAO.findByAccountNumber(Mockito.anyString())).then(new Answer<BankAccount>()
-        {
-            public BankAccount answer(InvocationOnMock invocationOnMock) throws Throwable
-            {
-                return new BankAccount(accountNumber, 0.0, Calendar.getInstance());
-            }
-        });
         bankAccountService = new BankAccountService();
         bankAccountService.setBankAccountDAO(bankAccountDAO);
     }
@@ -55,8 +47,26 @@ public class TestBankAccount
     @Test
     public void testGetAccountByAccountNumber() throws Exception
     {
+        Mockito.when(bankAccountDAO.findByAccountNumber(Mockito.anyString())).then(new Answer<BankAccount>()
+        {
+            public BankAccount answer(InvocationOnMock invocationOnMock) throws Throwable
+            {
+                return new BankAccount(accountNumber, 0.0, Calendar.getInstance());
+            }
+        });
         assertEquals(bankAccountService.getAccount(accountNumber).getAccountNumber(),accountNumber);
         assertEquals(bankAccountService.getAccount(accountNumber).getBalance(),0.0);
+    }
+
+    @Test
+    public void testDoDeposit() throws Exception
+    {
+        ArgumentCaptor<BankAccount> bankAccountArgumentCaptor = ArgumentCaptor.forClass(BankAccount.class);
+        bankAccountService.deposit(accountNumber, 500.0,"add 500$");
+        verify(bankAccountDAO,times(1)).save(bankAccountArgumentCaptor.capture());
+
+        bankAccountService.getAccount(accountNumber);
+        assertEquals(500.0, bankAccountArgumentCaptor.getValue().getBalance());
     }
 
 }

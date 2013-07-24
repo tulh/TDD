@@ -30,4 +30,11 @@ public class BankAccountService
     {
         return bankAccountDAO.findByAccountNumber(accountNumber);
     }
+
+    public void deposit(String accountNumber, double amount, String description)
+    {
+        BankAccount bankAccount = bankAccountDAO.findByAccountNumber(accountNumber);
+        bankAccount.setBalance(bankAccount.getBalance() + amount);
+        bankAccountDAO.save(bankAccount);
+    }
 }
