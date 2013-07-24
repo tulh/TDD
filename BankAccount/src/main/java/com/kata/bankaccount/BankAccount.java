@@ -12,6 +12,17 @@ public class BankAccount
     private double balance;
     private Calendar openTimeStamp;
 
+    public BankAccount ()
+    {
+
+    }
+    public BankAccount(String accountNumber, double balance, Calendar instance)
+    {
+        this.accountNumber = accountNumber;
+        this.balance = balance;
+        this.openTimeStamp = instance;
+    }
+
     public String getAccountNumber()
     {
         return accountNumber;

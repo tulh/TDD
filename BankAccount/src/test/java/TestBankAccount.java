@@ -32,7 +32,7 @@ public class TestBankAccount
         {
             public BankAccount answer(InvocationOnMock invocationOnMock) throws Throwable
             {
-                return new BankAccount();
+                return new BankAccount(accountNumber, 0.0, Calendar.getInstance());
             }
         });
         bankAccountService = new BankAccountService();
