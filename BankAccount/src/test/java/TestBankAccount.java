@@ -4,6 +4,9 @@ import com.kata.bankaccount.service.BankAccountService;
 import org.junit.Before;
 import org.junit.Test;
 import org.mockito.ArgumentCaptor;
+import org.mockito.Mockito;
+import org.mockito.invocation.InvocationOnMock;
+import org.mockito.stubbing.Answer;
 
 import java.util.Calendar;
 
@@ -25,6 +28,13 @@ public class TestBankAccount
     @Before
     public void setup()
     {
+        Mockito.when(bankAccountDAO.findByAccountNumber(Mockito.anyString())).then(new Answer<BankAccount>()
+        {
+            public BankAccount answer(InvocationOnMock invocationOnMock) throws Throwable
+            {
+                return new BankAccount();
+            }
+        });
         bankAccountService = new BankAccountService();
         bankAccountService.setBankAccountDAO(bankAccountDAO);
     }
@@ -39,6 +49,14 @@ public class TestBankAccount
         ArgumentCaptor<BankAccount> bankAccountCaptor = ArgumentCaptor.forClass(BankAccount.class);
         verify(bankAccountDAO).save(bankAccountCaptor.capture());
         assertEquals(bankAccountCaptor.getValue().getAccountNumber(),accountNumber);
-
+        assertEquals(bankAccountCaptor.getValue().getBalance(),0.0);
     }
+
+    @Test
+    public void testGetAccountByAccountNumber() throws Exception
+    {
+        assertEquals(bankAccountService.getAccount(accountNumber).getAccountNumber(),accountNumber);
+        assertEquals(bankAccountService.getAccount(accountNumber).getBalance(),0.0);
+    }
+
 }

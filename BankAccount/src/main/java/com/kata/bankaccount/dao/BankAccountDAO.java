@@ -12,4 +12,10 @@ public class BankAccountDAO
     {
         return bankAccount;  //To change body of implemented methods use File | Settings | File Templates.
     }
+
+    public BankAccount findByAccountNumber(String accountNumber)
+    {
+        return null;
+    }
+
 }

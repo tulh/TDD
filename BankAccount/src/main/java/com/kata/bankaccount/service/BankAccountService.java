@@ -25,4 +25,9 @@ public class BankAccountService
     {
         return bankAccountDAO.save(bankAccount);
     }
+
+    public BankAccount getAccount(String accountNumber)
+    {
+        return bankAccountDAO.findByAccountNumber(accountNumber);
+    }
 }
