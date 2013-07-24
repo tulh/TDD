@@ -62,6 +62,7 @@ public class TestBankAccount
     public void testDoDeposit() throws Exception
     {
         ArgumentCaptor<BankAccount> bankAccountArgumentCaptor = ArgumentCaptor.forClass(BankAccount.class);
+        when(bankAccountDAO.findByAccountNumber(accountNumber)).thenReturn(new BankAccount(accountNumber,0.0,Calendar.getInstance()));
         bankAccountService.deposit(accountNumber, 500.0,"add 500$");
         verify(bankAccountDAO,times(1)).save(bankAccountArgumentCaptor.capture());
 
