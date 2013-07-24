@@ -1,7 +1,11 @@
 package com.kata.bankaccount.service;
 
-import com.kata.bankaccount.model.BankAccount;
 import com.kata.bankaccount.dao.BankAccountDAO;
+import com.kata.bankaccount.dao.TransactionDAO;
+import com.kata.bankaccount.model.BankAccount;
+import com.kata.bankaccount.model.Transaction;
+
+import java.util.Calendar;
 
 /**
  * User: Tu
@@ -10,6 +14,17 @@ import com.kata.bankaccount.dao.BankAccountDAO;
 public class BankAccountService
 {
     private BankAccountDAO bankAccountDAO;
+    private TransactionDAO transactionDAO;
+
+    public TransactionDAO getTransactionDAO()
+    {
+        return transactionDAO;
+    }
+
+    public void setTransactionDAO(TransactionDAO transactionDAO)
+    {
+        this.transactionDAO = transactionDAO;
+    }
 
     public BankAccountDAO getBankAccountDAO()
     {
@@ -36,5 +51,12 @@ public class BankAccountService
         BankAccount bankAccount = bankAccountDAO.findByAccountNumber(accountNumber);
         bankAccount.setBalance(bankAccount.getBalance() + amount);
         bankAccountDAO.save(bankAccount);
+        Transaction transaction = new Transaction();
+        transaction.setAccountNumber(accountNumber);
+        transaction.setAmount(amount);
+        transaction.setDescription(description);
+        transaction.setTimeStamp(Calendar.getInstance());
+        transactionDAO.save(transaction);
+
     }
 }

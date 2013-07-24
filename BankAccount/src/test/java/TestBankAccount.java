@@ -1,5 +1,7 @@
-import com.kata.bankaccount.model.BankAccount;
 import com.kata.bankaccount.dao.BankAccountDAO;
+import com.kata.bankaccount.dao.TransactionDAO;
+import com.kata.bankaccount.model.BankAccount;
+import com.kata.bankaccount.model.Transaction;
 import com.kata.bankaccount.service.BankAccountService;
 import org.junit.Before;
 import org.junit.Test;
@@ -22,13 +24,16 @@ public class TestBankAccount
 
     private final static String accountNumber = "1234567890";
     private BankAccountDAO bankAccountDAO = mock(BankAccountDAO.class);
+    private TransactionDAO transactionDAO = mock(TransactionDAO.class);
     private BankAccountService bankAccountService;
+    //private Calendar timeStamp = mock(Calendar.class);
 
     @Before
     public void setup()
     {
         bankAccountService = new BankAccountService();
         bankAccountService.setBankAccountDAO(bankAccountDAO);
+        bankAccountService.setTransactionDAO(transactionDAO);
     }
     @Test
     public void testOpenBankAccount() throws Exception
@@ -74,6 +79,17 @@ public class TestBankAccount
         bankAccountService.deposit(accountNumber, 1000.0,"add 1000$");
         verify(bankAccountDAO,times(2)).save(bankAccountArgumentCaptor.capture());
         assertEquals(1500.0, bankAccountArgumentCaptor.getValue().getBalance());
+    }
+
+    @Test
+    public void testSaveTransaction() throws Exception
+    {
+        ArgumentCaptor<BankAccount> bankAccountArgumentCaptor = ArgumentCaptor.forClass(BankAccount.class);
+        when(bankAccountDAO.findByAccountNumber(accountNumber)).thenReturn(new BankAccount(accountNumber,0.0,Calendar.getInstance()));
+        ArgumentCaptor<Transaction> transactionArgumentCaptor = ArgumentCaptor.forClass(Transaction.class);
+
+        verify(transactionDAO).save(transactionArgumentCaptor.capture());
+
 
     }
 
