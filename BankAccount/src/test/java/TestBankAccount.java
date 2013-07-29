@@ -39,18 +39,19 @@ public class TestBankAccount
         bankAccountService.setTransactionDAO(transactionDAO);
         bankAccountService.setTimeStamp(timeStamp);
     }
+
     @Test
     public void testOpenBankAccount() throws Exception
     {
         BankAccount newBankAccount = new BankAccount();
         newBankAccount.setAccountNumber("1234567890");
         newBankAccount.setBalance(0.0);
-        newBankAccount.setOpenTimeStamp(Calendar.getInstance());
+        newBankAccount.setOpenTimeStamp(timeStamp);
         bankAccountService.openBankAccount(newBankAccount);
         ArgumentCaptor<BankAccount> bankAccountCaptor = ArgumentCaptor.forClass(BankAccount.class);
         verify(bankAccountDAO).save(bankAccountCaptor.capture());
         assertEquals(accountNumber, bankAccountCaptor.getValue().getAccountNumber());
-        assertEquals(0.0,bankAccountCaptor.getValue().getBalance());
+        assertEquals(0.0, bankAccountCaptor.getValue().getBalance());
     }
 
     @Test
@@ -71,9 +72,9 @@ public class TestBankAccount
     public void testDoDeposit() throws Exception
     {
         ArgumentCaptor<BankAccount> bankAccountArgumentCaptor = ArgumentCaptor.forClass(BankAccount.class);
-        when(bankAccountDAO.findByAccountNumber(accountNumber)).thenReturn(new BankAccount(accountNumber,0.0,Calendar.getInstance()));
+        when(bankAccountDAO.findByAccountNumber(accountNumber)).thenReturn(new BankAccount(accountNumber, 0.0, Calendar.getInstance()));
         bankAccountService.doTransaction(accountNumber, 500.0, "add 500$");
-        verify(bankAccountDAO,times(1)).save(bankAccountArgumentCaptor.capture());
+        verify(bankAccountDAO, times(1)).save(bankAccountArgumentCaptor.capture());
 
         //add 1st time 500$
         bankAccountService.getAccount(accountNumber);
@@ -81,7 +82,7 @@ public class TestBankAccount
 
         //add more 2nd time 1000$
         bankAccountService.doTransaction(accountNumber, 1000.0, "add 1000$");
-        verify(bankAccountDAO,times(2)).save(bankAccountArgumentCaptor.capture());
+        verify(bankAccountDAO, times(2)).save(bankAccountArgumentCaptor.capture());
         assertEquals(1500.0, bankAccountArgumentCaptor.getValue().getBalance());
     }
 
@@ -89,12 +90,12 @@ public class TestBankAccount
     public void testSaveTransaction() throws Exception
     {
         ArgumentCaptor<BankAccount> bankAccountArgumentCaptor = ArgumentCaptor.forClass(BankAccount.class);
-        when(bankAccountDAO.findByAccountNumber(accountNumber)).thenReturn(new BankAccount(accountNumber,0.0,Calendar.getInstance()));
+        when(bankAccountDAO.findByAccountNumber(accountNumber)).thenReturn(new BankAccount(accountNumber, 0.0, Calendar.getInstance()));
         ArgumentCaptor<Transaction> transactionArgumentCaptor = ArgumentCaptor.forClass(Transaction.class);
         bankAccountService.doTransaction(accountNumber, 500.0, "add 500$");
-        verify(bankAccountDAO,times(1)).save(bankAccountArgumentCaptor.capture());
+        verify(bankAccountDAO, times(1)).save(bankAccountArgumentCaptor.capture());
         verify(transactionDAO).save(transactionArgumentCaptor.capture());
-        assertEquals(500.0,transactionArgumentCaptor.getValue().getAmount());
+        assertEquals(500.0, transactionArgumentCaptor.getValue().getAmount());
     }
 
     @Test
@@ -123,7 +124,7 @@ public class TestBankAccount
     public void testSaveWithDrawTransaction() throws Exception
     {
         ArgumentCaptor<BankAccount> bankAccountArgumentCaptor = ArgumentCaptor.forClass(BankAccount.class);
-        when(bankAccountDAO.findByAccountNumber(accountNumber)).thenReturn(new BankAccount(accountNumber,1000.0,timeStamp.getInstance()));
+        when(bankAccountDAO.findByAccountNumber(accountNumber)).thenReturn(new BankAccount(accountNumber, 1000.0, timeStamp.getInstance()));
         when(timeStamp.getTimeInMillis()).thenReturn(1000L);
         bankAccountService.setTimeStamp(timeStamp);
         ArgumentCaptor<Transaction> transactionArgumentCaptor = ArgumentCaptor.forClass(Transaction.class);
@@ -132,7 +133,7 @@ public class TestBankAccount
         verify(transactionDAO).save(transactionArgumentCaptor.capture());
         assertEquals(-500.0, transactionArgumentCaptor.getValue().getAmount());
 
-        assertEquals(1000L,transactionArgumentCaptor.getValue().getTimeStamp().getTimeInMillis());
+        assertEquals(1000L, transactionArgumentCaptor.getValue().getTimeStamp().getTimeInMillis());
     }
 
     @Test
@@ -140,8 +141,8 @@ public class TestBankAccount
     {
         List<Transaction> transactionList = new ArrayList<Transaction>();
         transactionList.add(new Transaction(accountNumber, 300.0, "deposit 300$"));
-        when(transactionDAO.getAll(accountNumber)).thenReturn(transactionList);
-        assertEquals(transactionList,bankAccountService.getTransactionOccurred(accountNumber));
+        when(transactionDAO.findByAccountNumber(accountNumber)).thenReturn(transactionList);
+        assertEquals(transactionList, bankAccountService.getTransactionOccurred(accountNumber));
 
         assertFalse(transactionList.equals(bankAccountService.getTransactionOccurred(anotherAccountNumber)));
     }
@@ -154,12 +155,25 @@ public class TestBankAccount
         tran.setTimeStamp(timeStamp);
         transactionList.add(tran);
         when(timeStamp.getTimeInMillis()).thenReturn(1000L);
-        when(transactionDAO.getAll(accountNumber)).thenReturn(transactionList);
+        when(transactionDAO.findByAccountNumber(accountNumber)).thenReturn(transactionList);
         long startTime = 1000L;
         long stopTime = 2000L;
-        assertNotNull(bankAccountService.getTransactionsOccurred(accountNumber,startTime,stopTime));
-        assertEquals(transactionList, bankAccountService.getTransactionsOccurred(accountNumber,startTime,stopTime));
-        assertNotSame(transactionList,bankAccountService.getTransactionsOccurred(accountNumber,1001L,1040L));
+        assertNotNull(bankAccountService.getTransactionsOccurred(accountNumber, startTime, stopTime));
+        assertEquals(transactionList, bankAccountService.getTransactionsOccurred(accountNumber, startTime, stopTime));
+        assertNotSame(transactionList, bankAccountService.getTransactionsOccurred(accountNumber, 1001L, 1040L));
+    }
+
+    @Test
+    public void testGetNRecentTransaction() throws Exception
+    {
+        List<Transaction> transactionList = new ArrayList<Transaction>();
+        Transaction tran = new Transaction();
+        tran.setTimeStamp(timeStamp);
+        transactionList.add(tran);
+        when(transactionDAO.findNRecentTransaction(10)).thenReturn(transactionList);
+        assertNotNull(bankAccountService.getNRecentTransaction(10));
+        assertNotSame(10, bankAccountService.getNRecentTransaction(10).size());
+        assertTrue(bankAccountService.getNRecentTransaction(10).size() == 1);
     }
 
 

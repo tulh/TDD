@@ -12,10 +12,11 @@ public class BankAccount
     private double balance;
     private Calendar openTimeStamp;
 
-    public BankAccount ()
+    public BankAccount()
     {
 
     }
+
     public BankAccount(String accountNumber, double balance, Calendar instance)
     {
         this.accountNumber = accountNumber;
