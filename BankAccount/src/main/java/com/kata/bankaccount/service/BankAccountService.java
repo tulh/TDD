@@ -64,5 +64,11 @@ public class BankAccountService
         BankAccount bankAccount = bankAccountDAO.findByAccountNumber(accountNumber);
         bankAccount.setBalance(bankAccount.getBalance() - amount);
         bankAccountDAO.save(bankAccount);
+        Transaction transaction = new Transaction();
+        transaction.setAccountNumber(accountNumber);
+        transaction.setAmount(0 - amount);
+        transaction.setDescription(description);
+        transaction.setTimeStamp(Calendar.getInstance());
+        transactionDAO.save(transaction);
     }
 }
