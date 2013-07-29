@@ -26,7 +26,7 @@ public class TestBankAccount
     private BankAccountDAO bankAccountDAO = mock(BankAccountDAO.class);
     private TransactionDAO transactionDAO = mock(TransactionDAO.class);
     private BankAccountService bankAccountService;
-    //private Calendar timeStamp = mock(Calendar.class);
+    private Calendar timeStamp = mock(Calendar.class);
 
     @Before
     public void setup()
@@ -45,8 +45,8 @@ public class TestBankAccount
         bankAccountService.openBankAccount(newBankAccount);
         ArgumentCaptor<BankAccount> bankAccountCaptor = ArgumentCaptor.forClass(BankAccount.class);
         verify(bankAccountDAO).save(bankAccountCaptor.capture());
-        assertEquals(bankAccountCaptor.getValue().getAccountNumber(),accountNumber);
-        assertEquals(bankAccountCaptor.getValue().getBalance(),0.0);
+        assertEquals(accountNumber, bankAccountCaptor.getValue().getAccountNumber());
+        assertEquals(0.0,bankAccountCaptor.getValue().getBalance());
     }
 
     @Test
@@ -59,8 +59,8 @@ public class TestBankAccount
                 return new BankAccount(accountNumber, 0.0, Calendar.getInstance());
             }
         });
-        assertEquals(bankAccountService.getAccount(accountNumber).getAccountNumber(),accountNumber);
-        assertEquals(bankAccountService.getAccount(accountNumber).getBalance(),0.0);
+        assertEquals(accountNumber, bankAccountService.getAccount(accountNumber).getAccountNumber());
+        assertEquals(0.0, bankAccountService.getAccount(accountNumber).getBalance());
     }
 
     @Test
@@ -87,9 +87,12 @@ public class TestBankAccount
         ArgumentCaptor<BankAccount> bankAccountArgumentCaptor = ArgumentCaptor.forClass(BankAccount.class);
         when(bankAccountDAO.findByAccountNumber(accountNumber)).thenReturn(new BankAccount(accountNumber,0.0,Calendar.getInstance()));
         ArgumentCaptor<Transaction> transactionArgumentCaptor = ArgumentCaptor.forClass(Transaction.class);
-
+        bankAccountService.deposit(accountNumber, 500.0,"add 500$");
+        verify(bankAccountDAO,times(1)).save(bankAccountArgumentCaptor.capture());
         verify(transactionDAO).save(transactionArgumentCaptor.capture());
-
+        assertEquals(500.0,transactionArgumentCaptor.getValue().getAmount());
+        timeStamp = Calendar.getInstance();
+        assertEquals(timeStamp.getTime(),transactionArgumentCaptor.getValue().getTimeStamp().getTime());
 
     }
 
