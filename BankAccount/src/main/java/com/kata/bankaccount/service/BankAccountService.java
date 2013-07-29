@@ -6,6 +6,7 @@ import com.kata.bankaccount.model.BankAccount;
 import com.kata.bankaccount.model.Transaction;
 
 import java.util.Calendar;
+import java.util.List;
 
 /**
  * User: Tu
@@ -68,5 +69,10 @@ public class BankAccountService
         transaction.setDescription(description);
         transaction.setTimeStamp(timeStamp);
         transactionDAO.save(transaction);
+    }
+
+    public List<Transaction> getTransactionOccurred(String accountNumber)
+    {
+        return transactionDAO.getAll(accountNumber);
     }
 }

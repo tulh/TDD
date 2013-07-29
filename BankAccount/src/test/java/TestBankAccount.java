@@ -10,9 +10,12 @@ import org.mockito.Mockito;
 import org.mockito.invocation.InvocationOnMock;
 import org.mockito.stubbing.Answer;
 
+import java.util.ArrayList;
 import java.util.Calendar;
+import java.util.List;
 
 import static junit.framework.Assert.assertEquals;
+import static junit.framework.Assert.assertFalse;
 import static org.mockito.Mockito.*;
 
 /**
@@ -23,6 +26,7 @@ public class TestBankAccount
 {
 
     private final static String accountNumber = "1234567890";
+    private final static String anotherAccountNumber = "jjkhkh18492124";
     private BankAccountDAO bankAccountDAO = mock(BankAccountDAO.class);
     private TransactionDAO transactionDAO = mock(TransactionDAO.class);
     private BankAccountService bankAccountService;
@@ -69,7 +73,7 @@ public class TestBankAccount
     {
         ArgumentCaptor<BankAccount> bankAccountArgumentCaptor = ArgumentCaptor.forClass(BankAccount.class);
         when(bankAccountDAO.findByAccountNumber(accountNumber)).thenReturn(new BankAccount(accountNumber,0.0,Calendar.getInstance()));
-        bankAccountService.doTransaction(accountNumber, 500.0,"add 500$");
+        bankAccountService.doTransaction(accountNumber, 500.0, "add 500$");
         verify(bankAccountDAO,times(1)).save(bankAccountArgumentCaptor.capture());
 
         //add 1st time 500$
@@ -77,7 +81,7 @@ public class TestBankAccount
         assertEquals(500.0, bankAccountArgumentCaptor.getValue().getBalance());
 
         //add more 2nd time 1000$
-        bankAccountService.doTransaction(accountNumber, 1000.0,"add 1000$");
+        bankAccountService.doTransaction(accountNumber, 1000.0, "add 1000$");
         verify(bankAccountDAO,times(2)).save(bankAccountArgumentCaptor.capture());
         assertEquals(1500.0, bankAccountArgumentCaptor.getValue().getBalance());
     }
@@ -88,7 +92,7 @@ public class TestBankAccount
         ArgumentCaptor<BankAccount> bankAccountArgumentCaptor = ArgumentCaptor.forClass(BankAccount.class);
         when(bankAccountDAO.findByAccountNumber(accountNumber)).thenReturn(new BankAccount(accountNumber,0.0,Calendar.getInstance()));
         ArgumentCaptor<Transaction> transactionArgumentCaptor = ArgumentCaptor.forClass(Transaction.class);
-        bankAccountService.doTransaction(accountNumber, 500.0,"add 500$");
+        bankAccountService.doTransaction(accountNumber, 500.0, "add 500$");
         verify(bankAccountDAO,times(1)).save(bankAccountArgumentCaptor.capture());
         verify(transactionDAO).save(transactionArgumentCaptor.capture());
         assertEquals(500.0,transactionArgumentCaptor.getValue().getAmount());
@@ -130,6 +134,17 @@ public class TestBankAccount
         assertEquals(-500.0, transactionArgumentCaptor.getValue().getAmount());
 
         assertEquals(1000L,transactionArgumentCaptor.getValue().getTimeStamp().getTimeInMillis());
+    }
+
+    @Test
+    public void testGetAllTransaction() throws Exception
+    {
+        List<Transaction> transactionList = new ArrayList<Transaction>();
+        transactionList.add(new Transaction(accountNumber, 300.0, "deposit 300$"));
+        when(transactionDAO.getAll(accountNumber)).thenReturn(transactionList);
+        assertEquals(transactionList,bankAccountService.getTransactionOccurred(accountNumber));
+
+        assertFalse(transactionList.equals(bankAccountService.getTransactionOccurred(anotherAccountNumber)));
     }
 
 
