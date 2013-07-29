@@ -57,6 +57,12 @@ public class BankAccountService
         transaction.setDescription(description);
         transaction.setTimeStamp(Calendar.getInstance());
         transactionDAO.save(transaction);
+    }
 
+    public void withDraw(String accountNumber, double amount, String description)
+    {
+        BankAccount bankAccount = bankAccountDAO.findByAccountNumber(accountNumber);
+        bankAccount.setBalance(bankAccount.getBalance() - amount);
+        bankAccountDAO.save(bankAccount);
     }
 }
