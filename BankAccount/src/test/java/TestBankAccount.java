@@ -91,8 +91,6 @@ public class TestBankAccount
         verify(bankAccountDAO,times(1)).save(bankAccountArgumentCaptor.capture());
         verify(transactionDAO).save(transactionArgumentCaptor.capture());
         assertEquals(500.0,transactionArgumentCaptor.getValue().getAmount());
-        timeStamp = Calendar.getInstance();
-        assertEquals(timeStamp.getTime(),transactionArgumentCaptor.getValue().getTimeStamp().getTime());
     }
 
     @Test
@@ -116,5 +114,18 @@ public class TestBankAccount
         verify(bankAccountDAO, times(3)).save(bankAccountArgumentCaptor.capture());
         assertEquals(5000.0, bankAccountArgumentCaptor.getValue().getBalance());
     }
+
+    @Test
+    public void testSaveWithDrawTransaction() throws Exception
+    {
+        ArgumentCaptor<BankAccount> bankAccountArgumentCaptor = ArgumentCaptor.forClass(BankAccount.class);
+        when(bankAccountDAO.findByAccountNumber(accountNumber)).thenReturn(new BankAccount(accountNumber,1000.0,Calendar.getInstance()));
+        ArgumentCaptor<Transaction> transactionArgumentCaptor = ArgumentCaptor.forClass(Transaction.class);
+        bankAccountService.withDraw(accountNumber, 500.0,"minus 500$");
+        verify(bankAccountDAO,times(1)).save(bankAccountArgumentCaptor.capture());
+        verify(transactionDAO).save(transactionArgumentCaptor.capture());
+        assertEquals(-500.0,transactionArgumentCaptor.getValue().getAmount());
+    }
+
 
 }
