@@ -154,6 +154,7 @@ public class TestBankAccount
         tran.setTimeStamp(timeStamp);
         transactionList.add(tran);
         when(timeStamp.getTimeInMillis()).thenReturn(1000L);
+        when(transactionDAO.getAll(accountNumber)).thenReturn(transactionList);
         long startTime = 1000L;
         long stopTime = 2000L;
         assertNotNull(bankAccountService.getTransactionsOccurred(accountNumber,startTime,stopTime));
