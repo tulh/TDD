@@ -14,8 +14,7 @@ import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.List;
 
-import static junit.framework.Assert.assertEquals;
-import static junit.framework.Assert.assertFalse;
+import static junit.framework.Assert.*;
 import static org.mockito.Mockito.*;
 
 /**
@@ -145,6 +144,21 @@ public class TestBankAccount
         assertEquals(transactionList,bankAccountService.getTransactionOccurred(accountNumber));
 
         assertFalse(transactionList.equals(bankAccountService.getTransactionOccurred(anotherAccountNumber)));
+    }
+
+    @Test
+    public void testGetAllTransactionBetweenTwoMoments() throws Exception
+    {
+        List<Transaction> transactionList = new ArrayList<Transaction>();
+        Transaction tran = new Transaction();
+        tran.setTimeStamp(timeStamp);
+        transactionList.add(tran);
+        when(timeStamp.getTimeInMillis()).thenReturn(1000L);
+        long startTime = 1000L;
+        long stopTime = 2000L;
+        assertNotNull(bankAccountService.getTransactionsOccurred(accountNumber,startTime,stopTime));
+        assertEquals(transactionList, bankAccountService.getTransactionsOccurred(accountNumber,startTime,stopTime));
+        assertNotSame(transactionList,bankAccountService.getTransactionsOccurred(accountNumber,1001L,1040L));
     }
 
 

@@ -5,6 +5,7 @@ import com.kata.bankaccount.dao.TransactionDAO;
 import com.kata.bankaccount.model.BankAccount;
 import com.kata.bankaccount.model.Transaction;
 
+import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.List;
 
@@ -74,5 +75,22 @@ public class BankAccountService
     public List<Transaction> getTransactionOccurred(String accountNumber)
     {
         return transactionDAO.getAll(accountNumber);
+    }
+
+    public List<Transaction> getTransactionsOccurred(String accountNumber, long startTime, long stopTime)
+    {
+        List<Transaction> transactionList = transactionDAO.getAll(accountNumber);
+        List<Transaction> resultList = new ArrayList<Transaction>();
+        if(transactionList.size() > 0) {
+            for(Transaction transaction : transactionList)
+            {
+                if(transaction.getTimeStamp().getTimeInMillis() >= startTime &&
+                        transaction.getTimeStamp().getTimeInMillis() < stopTime)
+                {
+                    resultList.add(transaction);
+                }
+            }
+        }
+        return resultList;
     }
 }

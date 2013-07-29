@@ -13,6 +13,18 @@ public class Transaction
     private double amount;
     private String description;
 
+    public Transaction(String accountNumber, double amount, String description)
+    {
+        this.accountNumber = accountNumber;
+        this.amount = amount;
+        this.description = description;
+    }
+
+    public Transaction()
+    {
+        //To change body of created methods use File | Settings | File Templates.
+    }
+
     public String getAccountNumber()
     {
         return accountNumber;
