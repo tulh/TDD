@@ -12,17 +12,6 @@ public class Transaction
     private Calendar timeStamp;
     private double amount;
     private String description;
-    private Calendar calendar;
-
-    public Calendar getCalendar()
-    {
-        return calendar;
-    }
-
-    public void setCalendar(Calendar calendar)
-    {
-        this.calendar = calendar;
-    }
 
     public String getAccountNumber()
     {

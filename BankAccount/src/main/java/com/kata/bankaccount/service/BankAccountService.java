@@ -15,6 +15,17 @@ public class BankAccountService
 {
     private BankAccountDAO bankAccountDAO;
     private TransactionDAO transactionDAO;
+    private Calendar timeStamp;
+
+    public Calendar getTimeStamp()
+    {
+        return timeStamp;
+    }
+
+    public void setTimeStamp(Calendar timeStamp)
+    {
+        this.timeStamp = timeStamp;
+    }
 
     public TransactionDAO getTransactionDAO()
     {
@@ -46,7 +57,7 @@ public class BankAccountService
         return bankAccountDAO.findByAccountNumber(accountNumber);
     }
 
-    public void deposit(String accountNumber, double amount, String description)
+    public void doTransaction(String accountNumber, double amount, String description)
     {
         BankAccount bankAccount = bankAccountDAO.findByAccountNumber(accountNumber);
         bankAccount.setBalance(bankAccount.getBalance() + amount);
@@ -55,20 +66,7 @@ public class BankAccountService
         transaction.setAccountNumber(accountNumber);
         transaction.setAmount(amount);
         transaction.setDescription(description);
-        transaction.setTimeStamp(Calendar.getInstance());
-        transactionDAO.save(transaction);
-    }
-
-    public void withDraw(String accountNumber, double amount, String description)
-    {
-        BankAccount bankAccount = bankAccountDAO.findByAccountNumber(accountNumber);
-        bankAccount.setBalance(bankAccount.getBalance() - amount);
-        bankAccountDAO.save(bankAccount);
-        Transaction transaction = new Transaction();
-        transaction.setAccountNumber(accountNumber);
-        transaction.setAmount(0 - amount);
-        transaction.setDescription(description);
-        transaction.setTimeStamp(Calendar.getInstance());
+        transaction.setTimeStamp(timeStamp);
         transactionDAO.save(transaction);
     }
 }

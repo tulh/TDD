@@ -34,6 +34,7 @@ public class TestBankAccount
         bankAccountService = new BankAccountService();
         bankAccountService.setBankAccountDAO(bankAccountDAO);
         bankAccountService.setTransactionDAO(transactionDAO);
+        bankAccountService.setTimeStamp(timeStamp);
     }
     @Test
     public void testOpenBankAccount() throws Exception
@@ -68,7 +69,7 @@ public class TestBankAccount
     {
         ArgumentCaptor<BankAccount> bankAccountArgumentCaptor = ArgumentCaptor.forClass(BankAccount.class);
         when(bankAccountDAO.findByAccountNumber(accountNumber)).thenReturn(new BankAccount(accountNumber,0.0,Calendar.getInstance()));
-        bankAccountService.deposit(accountNumber, 500.0,"add 500$");
+        bankAccountService.doTransaction(accountNumber, 500.0,"add 500$");
         verify(bankAccountDAO,times(1)).save(bankAccountArgumentCaptor.capture());
 
         //add 1st time 500$
@@ -76,7 +77,7 @@ public class TestBankAccount
         assertEquals(500.0, bankAccountArgumentCaptor.getValue().getBalance());
 
         //add more 2nd time 1000$
-        bankAccountService.deposit(accountNumber, 1000.0,"add 1000$");
+        bankAccountService.doTransaction(accountNumber, 1000.0,"add 1000$");
         verify(bankAccountDAO,times(2)).save(bankAccountArgumentCaptor.capture());
         assertEquals(1500.0, bankAccountArgumentCaptor.getValue().getBalance());
     }
@@ -87,7 +88,7 @@ public class TestBankAccount
         ArgumentCaptor<BankAccount> bankAccountArgumentCaptor = ArgumentCaptor.forClass(BankAccount.class);
         when(bankAccountDAO.findByAccountNumber(accountNumber)).thenReturn(new BankAccount(accountNumber,0.0,Calendar.getInstance()));
         ArgumentCaptor<Transaction> transactionArgumentCaptor = ArgumentCaptor.forClass(Transaction.class);
-        bankAccountService.deposit(accountNumber, 500.0,"add 500$");
+        bankAccountService.doTransaction(accountNumber, 500.0,"add 500$");
         verify(bankAccountDAO,times(1)).save(bankAccountArgumentCaptor.capture());
         verify(transactionDAO).save(transactionArgumentCaptor.capture());
         assertEquals(500.0,transactionArgumentCaptor.getValue().getAmount());
@@ -100,17 +101,17 @@ public class TestBankAccount
         when(bankAccountDAO.findByAccountNumber(accountNumber)).thenReturn(new BankAccount(accountNumber, 5000.0, Calendar.getInstance()));
 
         // withdraw first time
-        bankAccountService.withDraw(accountNumber, 250.0, "minus 250$");
+        bankAccountService.doTransaction(accountNumber, -250.0, "minus 250$");
         verify(bankAccountDAO, times(1)).save(bankAccountArgumentCaptor.capture());
         assertEquals(4750.0, bankAccountArgumentCaptor.getValue().getBalance());
 
         // withdraw second time
-        bankAccountService.withDraw(accountNumber, 250.0, "minus 250$");
+        bankAccountService.doTransaction(accountNumber, -250.0, "minus 250$");
         verify(bankAccountDAO, times(2)).save(bankAccountArgumentCaptor.capture());
         assertEquals(4500.0, bankAccountArgumentCaptor.getValue().getBalance());
 
-        // do deposit
-        bankAccountService.deposit(accountNumber, 500.0, "plus 500$");
+        // deposit
+        bankAccountService.doTransaction(accountNumber, 500.0, "plus 500$");
         verify(bankAccountDAO, times(3)).save(bankAccountArgumentCaptor.capture());
         assertEquals(5000.0, bankAccountArgumentCaptor.getValue().getBalance());
     }
@@ -119,12 +120,16 @@ public class TestBankAccount
     public void testSaveWithDrawTransaction() throws Exception
     {
         ArgumentCaptor<BankAccount> bankAccountArgumentCaptor = ArgumentCaptor.forClass(BankAccount.class);
-        when(bankAccountDAO.findByAccountNumber(accountNumber)).thenReturn(new BankAccount(accountNumber,1000.0,Calendar.getInstance()));
+        when(bankAccountDAO.findByAccountNumber(accountNumber)).thenReturn(new BankAccount(accountNumber,1000.0,timeStamp.getInstance()));
+        when(timeStamp.getTimeInMillis()).thenReturn(1000L);
+        bankAccountService.setTimeStamp(timeStamp);
         ArgumentCaptor<Transaction> transactionArgumentCaptor = ArgumentCaptor.forClass(Transaction.class);
-        bankAccountService.withDraw(accountNumber, 500.0,"minus 500$");
-        verify(bankAccountDAO,times(1)).save(bankAccountArgumentCaptor.capture());
+        bankAccountService.doTransaction(accountNumber, -500.0, "minus 500$");
+        verify(bankAccountDAO, times(1)).save(bankAccountArgumentCaptor.capture());
         verify(transactionDAO).save(transactionArgumentCaptor.capture());
-        assertEquals(-500.0,transactionArgumentCaptor.getValue().getAmount());
+        assertEquals(-500.0, transactionArgumentCaptor.getValue().getAmount());
+
+        assertEquals(1000L,transactionArgumentCaptor.getValue().getTimeStamp().getTimeInMillis());
     }
 
 
