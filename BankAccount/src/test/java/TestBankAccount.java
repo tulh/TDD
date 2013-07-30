@@ -3,12 +3,10 @@ import com.kata.bankaccount.dao.TransactionDAO;
 import com.kata.bankaccount.model.BankAccount;
 import com.kata.bankaccount.model.Transaction;
 import com.kata.bankaccount.service.BankAccountService;
+import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 import org.mockito.ArgumentCaptor;
-import org.mockito.Mockito;
-import org.mockito.invocation.InvocationOnMock;
-import org.mockito.stubbing.Answer;
 
 import java.util.ArrayList;
 import java.util.Calendar;
@@ -40,6 +38,12 @@ public class TestBankAccount
         bankAccountService.setTimeStamp(timeStamp);
     }
 
+    public void createDefaultRecordForBankAccount(double money)
+    {
+        when(bankAccountDAO.findByAccountNumber(accountNumber)).
+                thenReturn(new BankAccount(accountNumber, money, Calendar.getInstance()));
+    }
+
     @Test
     public void testOpenBankAccount() throws Exception
     {
@@ -57,13 +61,7 @@ public class TestBankAccount
     @Test
     public void testGetAccountByAccountNumber() throws Exception
     {
-        Mockito.when(bankAccountDAO.findByAccountNumber(Mockito.anyString())).then(new Answer<BankAccount>()
-        {
-            public BankAccount answer(InvocationOnMock invocationOnMock) throws Throwable
-            {
-                return new BankAccount(accountNumber, 0.0, Calendar.getInstance());
-            }
-        });
+        createDefaultRecordForBankAccount(0.0);
         assertEquals(accountNumber, bankAccountService.getAccount(accountNumber).getAccountNumber());
         assertEquals(0.0, bankAccountService.getAccount(accountNumber).getBalance());
     }
@@ -72,7 +70,7 @@ public class TestBankAccount
     public void testDoDeposit() throws Exception
     {
         ArgumentCaptor<BankAccount> bankAccountArgumentCaptor = ArgumentCaptor.forClass(BankAccount.class);
-        when(bankAccountDAO.findByAccountNumber(accountNumber)).thenReturn(new BankAccount(accountNumber, 0.0, Calendar.getInstance()));
+        createDefaultRecordForBankAccount(0.0);
         bankAccountService.doTransaction(accountNumber, 500.0, "add 500$");
         verify(bankAccountDAO, times(1)).save(bankAccountArgumentCaptor.capture());
 
@@ -90,7 +88,7 @@ public class TestBankAccount
     public void testSaveTransaction() throws Exception
     {
         ArgumentCaptor<BankAccount> bankAccountArgumentCaptor = ArgumentCaptor.forClass(BankAccount.class);
-        when(bankAccountDAO.findByAccountNumber(accountNumber)).thenReturn(new BankAccount(accountNumber, 0.0, Calendar.getInstance()));
+        createDefaultRecordForBankAccount(0.0);
         ArgumentCaptor<Transaction> transactionArgumentCaptor = ArgumentCaptor.forClass(Transaction.class);
         bankAccountService.doTransaction(accountNumber, 500.0, "add 500$");
         verify(bankAccountDAO, times(1)).save(bankAccountArgumentCaptor.capture());
@@ -102,8 +100,7 @@ public class TestBankAccount
     public void testDoWithDraw() throws Exception
     {
         ArgumentCaptor<BankAccount> bankAccountArgumentCaptor = ArgumentCaptor.forClass(BankAccount.class);
-        when(bankAccountDAO.findByAccountNumber(accountNumber)).thenReturn(new BankAccount(accountNumber, 5000.0, Calendar.getInstance()));
-
+        createDefaultRecordForBankAccount(5000.0);
         // withdraw first time
         bankAccountService.doTransaction(accountNumber, -250.0, "minus 250$");
         verify(bankAccountDAO, times(1)).save(bankAccountArgumentCaptor.capture());
@@ -124,7 +121,7 @@ public class TestBankAccount
     public void testSaveWithDrawTransaction() throws Exception
     {
         ArgumentCaptor<BankAccount> bankAccountArgumentCaptor = ArgumentCaptor.forClass(BankAccount.class);
-        when(bankAccountDAO.findByAccountNumber(accountNumber)).thenReturn(new BankAccount(accountNumber, 1000.0, timeStamp.getInstance()));
+        createDefaultRecordForBankAccount(1000.0);
         when(timeStamp.getTimeInMillis()).thenReturn(1000L);
         bankAccountService.setTimeStamp(timeStamp);
         ArgumentCaptor<Transaction> transactionArgumentCaptor = ArgumentCaptor.forClass(Transaction.class);
@@ -176,5 +173,10 @@ public class TestBankAccount
         assertTrue(bankAccountService.getNRecentTransaction(10).size() == 1);
     }
 
+    @After
+    public void tearDown()
+    {
+        reset(bankAccountDAO, transactionDAO, timeStamp);
+    }
 
 }
