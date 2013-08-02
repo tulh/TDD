@@ -90,6 +90,11 @@ public class SingleLinkedList
         size++;
     }
 
+    public int find(Object o)
+    {
+        return -1;
+    }
+
     public static class Node
     {
         private Node next;
