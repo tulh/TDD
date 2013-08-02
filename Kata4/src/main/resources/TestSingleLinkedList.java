@@ -62,7 +62,7 @@ public class TestSingleLinkedList
         assertTrue(singleLinkedList.size == 0);
         // after insert at first
         singleLinkedList.insertFirst("a");
-        assertEquals(1,singleLinkedList.size);
+        assertEquals(1, singleLinkedList.size);
     }
 
     @Test
@@ -70,9 +70,21 @@ public class TestSingleLinkedList
     {
         setUpNotEmptySingleLinkedList();
         // find object e=3 in the list, should return 4
-        assertEquals(4,singleLinkedList.find(3));
+        assertEquals(4, singleLinkedList.find(3));
         // find object = 11 not in the list, should return -1
         assertEquals(-1, singleLinkedList.find(11));
+    }
+
+    @Test
+    public void testInsertAfter()
+    {
+        setUpEmptySingleLinkedList();
+        singleLinkedList.append('a');
+        singleLinkedList.append('b');
+        singleLinkedList.append('c');
+        System.out.println(singleLinkedList.getAt(2).getE());
+        singleLinkedList.insertAfter(singleLinkedList.getAt(1),3);
+        System.out.println(singleLinkedList.getAt(3).getE());
     }
 
 }
