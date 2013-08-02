@@ -4,6 +4,7 @@ import org.junit.Test;
 import java.util.ArrayList;
 import java.util.List;
 
+import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
 
 /**
@@ -61,7 +62,7 @@ public class TestSingleLinkedList
         assertTrue(singleLinkedList.size == 0);
         // after insert at first
         singleLinkedList.insertFirst("a");
-        assertTrue(singleLinkedList.size==1);
+        assertEquals(1,singleLinkedList.size);
     }
 
 }

@@ -76,6 +76,18 @@ public class SingleLinkedList
     public void insertFirst(Object data)
     {
         Node newNode = new Node(data, head);
+        if(head == null)
+        {
+            newNode.next = null;
+            head = newNode;
+            tail = newNode;
+        }
+        else
+        {
+            newNode.next = head;
+            head = newNode;
+        }
+        size++;
     }
 
     public static class Node
