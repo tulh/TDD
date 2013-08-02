@@ -65,14 +65,4 @@ public class TestSingleLinkedList
         assertEquals(1,singleLinkedList.size);
     }
 
-    @Test
-    public void testFindFirstNodeContainObject()
-    {
-        setUpNotEmptySingleLinkedList();
-        // find object e=3 in the list, should return 4
-        assertEquals(4,singleLinkedList.find(3));
-        // find object = 11 not in the list, should return -1
-        assertEquals(-1, singleLinkedList.find(11));
-    }
-
 }
