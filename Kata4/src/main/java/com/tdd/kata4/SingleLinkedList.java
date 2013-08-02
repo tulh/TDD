@@ -9,16 +9,22 @@ import java.util.List;
 public class SingleLinkedList
 {
     public int size;
-    private Node node;
+    private Node head;
+    private Node tail;
 
     public SingleLinkedList(List<Object> listObject)
     {
+        for(Object e: listObject)
+        {
+            append(e);
+        }
     }
 
     public SingleLinkedList()
     {
         size = 0;
-        node = new Node(null, null);
+        head = null;
+        tail = null;
     }
 
     public int getSize()
@@ -31,22 +37,48 @@ public class SingleLinkedList
         this.size = size;
     }
 
-    public Node getNode()
+    public Node getHead()
     {
-        return node;
+        return head;
     }
 
-    public void setNode(Node node)
+    public void setHead(Node head)
     {
-        this.node = node;
+        this.head = head;
+    }
+
+    public Node getTail()
+    {
+        return tail;
+    }
+
+    public void setTail(Node tail)
+    {
+        this.tail = tail;
     }
 
     public void append(Object data)
     {
-        node.append(data);
+        Node newNode = new Node(data, null);
+        if(head == null)
+        {
+            head = newNode;
+            tail = newNode;
+        }
+        else
+        {
+            tail.next = newNode;
+            tail = newNode;
+        }
         size++;
     }
-    private static class Node
+
+    public void insertFirst(Object data)
+    {
+        Node newNode = new Node(data, head);
+    }
+
+    public static class Node
     {
         private Node next;
         private Object e;
@@ -57,29 +89,24 @@ public class SingleLinkedList
             this.next = next;
         }
 
-        private Node getNext()
+        public Node getNext()
         {
             return next;
         }
 
-        private void setNext(Node next)
+        public void setNext(Node next)
         {
             this.next = next;
         }
 
-        private Object getE()
+        public Object getE()
         {
             return e;
         }
 
-        private void setE(Object e)
+        public void setE(Object e)
         {
             this.e = e;
-        }
-
-        public void append(Object data)
-        {
-            next = new Node(data, next);
         }
     }
 }

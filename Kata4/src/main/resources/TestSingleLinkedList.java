@@ -29,14 +29,14 @@ public class TestSingleLinkedList
         singleLinkedList = new SingleLinkedList(listObject);
     }
     @Test
-    public void testConstructorWithoutArgument()
+    public void testCreateEmptyLinkedList()
     {
         setUpEmptySingleLinkedList();
         assertTrue(singleLinkedList.size == 0);
     }
 
     @Test
-    public void testConstructorWithArgumentIsAnArray()
+    public void testCreateLinkedListFromAnArray()
     {
         setUpNotEmptySingleLinkedList();
         assertTrue(singleLinkedList.size == 10);
@@ -51,6 +51,17 @@ public class TestSingleLinkedList
         // now it has 1 node
         singleLinkedList.append("a");
         assertTrue(singleLinkedList.size == 1);
+    }
+
+    @Test
+    public void testInsertFirstMethod()
+    {
+        setUpEmptySingleLinkedList();
+        // 1st time list is empty
+        assertTrue(singleLinkedList.size == 0);
+        // after insert at first
+        singleLinkedList.insertFirst("a");
+        assertTrue(singleLinkedList.size==1);
     }
 
 }
