@@ -90,6 +90,22 @@ public class SingleLinkedList
         size++;
     }
 
+    public int find(Object o)
+    {
+        Node current = head;
+        int index = 0;
+        while(current != null)
+        {
+            index++;
+            if(current.getE().equals(o))
+            {
+                return index;
+            }
+            current = current.next;
+        }
+        return -1;
+    }
+
     public static class Node
     {
         private Node next;
