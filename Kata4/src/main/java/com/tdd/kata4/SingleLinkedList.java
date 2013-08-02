@@ -41,7 +41,12 @@ public class SingleLinkedList
         this.node = node;
     }
 
-    private class Node
+    public void append(Object data)
+    {
+        node.append(data);
+        size++;
+    }
+    private static class Node
     {
         private Node next;
         private Object e;

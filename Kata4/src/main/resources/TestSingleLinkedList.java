@@ -1,5 +1,4 @@
 import com.tdd.kata4.SingleLinkedList;
-import org.junit.Before;
 import org.junit.Test;
 
 import java.util.ArrayList;
@@ -47,7 +46,11 @@ public class TestSingleLinkedList
     public void testAppendMethod()
     {
         setUpEmptySingleLinkedList();
+        // at first singleLinkedList is empty
+        assertTrue(singleLinkedList.size == 0);
+        // now it has 1 node
         singleLinkedList.append("a");
+        assertTrue(singleLinkedList.size == 1);
     }
 
 }
