@@ -90,6 +90,18 @@ public class SingleLinkedList
         size++;
     }
 
+    public void insertAfter(Node n, Object e)
+    {
+        if(n == null)
+            insertFirst(e);
+        else if(n == tail)
+            append(e);
+        else {
+            Node newNode = new Node(e,n.next);
+            n.next = newNode;
+        }
+    }
+
     public int find(Object o)
     {
         Node current = head;
@@ -106,6 +118,24 @@ public class SingleLinkedList
         return -1;
     }
 
+    public Node getAt(int index)
+    {
+        if(index < 0)
+            return null;
+        else if(index == 0)
+            return head;
+        else
+        {
+            Node current = head;
+            int i=0;
+            while(current!=null && i<index)
+            {
+                i++;
+                current = current.next;
+            }
+            return current;
+        }
+    }
     public static class Node
     {
         private Node next;
