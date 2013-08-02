@@ -1,6 +1,10 @@
 import com.tdd.kata4.SingleLinkedList;
 import org.junit.Test;
 
+import java.util.ArrayList;
+import java.util.List;
+
+import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
 
 /**
@@ -9,11 +13,66 @@ import static org.junit.Assert.assertTrue;
  */
 public class TestSingleLinkedList
 {
-    @Test
-    public void testConstructorWithoutArgument()
+    private static SingleLinkedList singleLinkedList;
+
+    public void setUpEmptySingleLinkedList()
     {
-        SingleLinkedList list = new SingleLinkedList();
-        assertTrue(list.size == 0);
+        singleLinkedList = new SingleLinkedList();
+    }
+
+    public void setUpNotEmptySingleLinkedList()
+    {
+        List<Object> listObject = new ArrayList<Object>();
+        for(int i=0; i<10; i++)
+        {
+            listObject.add(i);
+        }
+        singleLinkedList = new SingleLinkedList(listObject);
+    }
+    @Test
+    public void testCreateEmptyLinkedList()
+    {
+        setUpEmptySingleLinkedList();
+        assertTrue(singleLinkedList.size == 0);
+    }
+
+    @Test
+    public void testCreateLinkedListFromAnArray()
+    {
+        setUpNotEmptySingleLinkedList();
+        assertTrue(singleLinkedList.size == 10);
+    }
+
+    @Test
+    public void testAppendMethod()
+    {
+        setUpEmptySingleLinkedList();
+        // at first singleLinkedList is empty
+        assertTrue(singleLinkedList.size == 0);
+        // now it has 1 node
+        singleLinkedList.append("a");
+        assertTrue(singleLinkedList.size == 1);
+    }
+
+    @Test
+    public void testInsertFirstMethod()
+    {
+        setUpEmptySingleLinkedList();
+        // 1st time list is empty
+        assertTrue(singleLinkedList.size == 0);
+        // after insert at first
+        singleLinkedList.insertFirst("a");
+        assertEquals(1,singleLinkedList.size);
+    }
+
+    @Test
+    public void testFindFirstNodeContainObject()
+    {
+        setUpNotEmptySingleLinkedList();
+        // find object e=3 in the list, should return 4
+        assertEquals(4,singleLinkedList.find(3));
+        // find object = 11 not in the list, should return -1
+        assertEquals(-1, singleLinkedList.find(11));
     }
 
 }

@@ -92,6 +92,17 @@ public class SingleLinkedList
 
     public int find(Object o)
     {
+        Node current = head;
+        int index = 0;
+        while(current != null)
+        {
+            index++;
+            if(current.getE().equals(o))
+            {
+                return index;
+            }
+            current = current.next;
+        }
         return -1;
     }
 
