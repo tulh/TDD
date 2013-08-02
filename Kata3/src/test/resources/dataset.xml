@@ -1,0 +1,4 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<dataset>
+    <bank_account account_number="1234567890"  balance="100.0" open_timestamp="2013-07-30 09:11:24"/>
+</dataset>
