@@ -1,5 +1,7 @@
 package com.tdd.kata4;
 
+import java.util.List;
+
 /**
  * User: Tu
  * Date: 8/2/13
@@ -8,6 +10,15 @@ public class SingleLinkedList
 {
     public int size;
     private Node node;
+
+    public SingleLinkedList(List<Object> listObject)
+    {
+    }
+
+    public SingleLinkedList()
+    {
+        size = 0;
+    }
 
     public int getSize()
     {
