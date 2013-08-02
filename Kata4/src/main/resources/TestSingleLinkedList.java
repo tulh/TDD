@@ -82,9 +82,22 @@ public class TestSingleLinkedList
         singleLinkedList.append('a');
         singleLinkedList.append('b');
         singleLinkedList.append('c');
-        System.out.println(singleLinkedList.getAt(2).getE());
+        //before doing insert c is at index = 2
+        assertEquals('c',singleLinkedList.getAt(2).getE());
         singleLinkedList.insertAfter(singleLinkedList.getAt(1),3);
-        System.out.println(singleLinkedList.getAt(3).getE());
+        // after doing insert c is at index = 3
+        assertEquals('c',singleLinkedList.getAt(3).getE());
+    }
+
+    @Test
+    public void testDeleteNodeFromLinkedList()
+    {
+        setUpNotEmptySingleLinkedList();
+        assertTrue(singleLinkedList.size == 10);
+        assertEquals(4, singleLinkedList.getAt(3));
+        singleLinkedList.delete(singleLinkedList.getAt(3));
+        assertEquals(9,singleLinkedList.size);
+        assertEquals(5,singleLinkedList.getAt(3));
     }
 
 }

@@ -136,6 +136,11 @@ public class SingleLinkedList
             return current;
         }
     }
+
+    public void delete(Node at)
+    {
+    }
+
     public static class Node
     {
         private Node next;
