@@ -18,6 +18,7 @@ public class SingleLinkedList
     public SingleLinkedList()
     {
         size = 0;
+        node = new Node(null, null);
     }
 
     public int getSize()
@@ -40,10 +41,16 @@ public class SingleLinkedList
         this.node = node;
     }
 
-    private static class Node
+    private class Node
     {
         private Node next;
         private Object e;
+
+        public Node(Object e, Node next)
+        {
+            this.e  = e;
+            this.next = next;
+        }
 
         private Node getNext()
         {
@@ -63,6 +70,11 @@ public class SingleLinkedList
         private void setE(Object e)
         {
             this.e = e;
+        }
+
+        public void append(Object data)
+        {
+            next = new Node(data, next);
         }
     }
 }
