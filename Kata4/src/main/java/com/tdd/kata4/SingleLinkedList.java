@@ -176,7 +176,9 @@ public class SingleLinkedList
 
     public Node last()
     {
-        return null;  //To change body of created methods use File | Settings | File Templates.
+        if(size > 0)
+            return getAt(size-1);
+        else return null;
     }
 
     public static class Node
