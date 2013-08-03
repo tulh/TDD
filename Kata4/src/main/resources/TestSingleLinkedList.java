@@ -109,4 +109,12 @@ public class TestSingleLinkedList
         assertEquals(2,singleLinkedList.before(singleLinkedList.getAt(3)).getE());
     }
 
+    @Test
+    public void testAfter()
+    {
+        setUpNotEmptySingleLinkedList();
+        System.out.println(singleLinkedList.getAt(3).getE());
+        // expect return node 4 has value = 4 after node 3 has value = 3
+        assertEquals(4, singleLinkedList.after(singleLinkedList.getAt(3)).getE());
+    }
 }
