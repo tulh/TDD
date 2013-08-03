@@ -128,4 +128,11 @@ public class TestSingleLinkedList
         assertEquals(0, singleLinkedList.first().getE());
 
     }
+
+    @Test
+    public void testGetLast()
+    {
+        setUpNotEmptySingleLinkedList();;
+        assertEquals(9, singleLinkedList.last().getE());
+    }
 }

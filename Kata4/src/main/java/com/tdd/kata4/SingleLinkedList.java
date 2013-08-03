@@ -174,6 +174,11 @@ public class SingleLinkedList
         else return null;
     }
 
+    public Node last()
+    {
+        return null;  //To change body of created methods use File | Settings | File Templates.
+    }
+
     public static class Node
     {
         private Node next;
