@@ -100,4 +100,12 @@ public class TestSingleLinkedList
         assertEquals(4,singleLinkedList.getAt(3).getE());
     }
 
+    @Test
+    public void testBefore()
+    {
+        setUpNotEmptySingleLinkedList();
+        // expect return node 2 has value = 2 before node 3 has value = 3
+        assertEquals(2,singleLinkedList.before(singleLinkedList.getAt(3)).getE());
+    }
+
 }
