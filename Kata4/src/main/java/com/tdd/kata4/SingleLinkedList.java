@@ -67,7 +67,7 @@ public class SingleLinkedList
         }
         else
         {
-            tail.next = newNode;
+            tail.setNext(newNode);
             tail = newNode;
         }
         size++;
@@ -78,13 +78,13 @@ public class SingleLinkedList
         Node newNode = new Node(data, head);
         if(head == null)
         {
-            newNode.next = null;
+            newNode.setNext(null);
             head = newNode;
             tail = newNode;
         }
         else
         {
-            newNode.next = head;
+            newNode.setNext(head);
             head = newNode;
         }
         size++;
@@ -97,8 +97,8 @@ public class SingleLinkedList
         else if(n == tail)
             append(e);
         else {
-            Node newNode = new Node(e,n.next);
-            n.next = newNode;
+            Node newNode = new Node(e,n.getNext());
+            n.setNext(newNode);
         }
     }
 
@@ -115,7 +115,7 @@ public class SingleLinkedList
             else
             {
                 index++;
-                current = current.next;
+                current = current.getNext();
             }
         }
         return -1;
@@ -134,7 +134,7 @@ public class SingleLinkedList
             while(current!=null && i<index)
             {
                 i++;
-                current = current.next;
+                current = current.getNext();
             }
             return current;
         }
@@ -142,8 +142,8 @@ public class SingleLinkedList
 
     public void delete(Node at)
     {
-        at.e = at.next.e;
-        at.next = at.next.next;
+        at.setE(at.getNext().getE());
+        at.setNext(at.getNext());
         size--;
     }
 
@@ -179,37 +179,5 @@ public class SingleLinkedList
         if(size > 0)
             return getAt(size-1);
         else return null;
-    }
-
-    public static class Node
-    {
-        private Node next;
-        private Object e;
-
-        public Node(Object e, Node next)
-        {
-            this.e  = e;
-            this.next = next;
-        }
-
-        public Node getNext()
-        {
-            return next;
-        }
-
-        public void setNext(Node next)
-        {
-            this.next = next;
-        }
-
-        public Object getE()
-        {
-            return e;
-        }
-
-        public void setE(Object e)
-        {
-            this.e = e;
-        }
     }
 }
