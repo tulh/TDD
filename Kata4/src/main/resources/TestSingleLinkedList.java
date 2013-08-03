@@ -5,6 +5,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNull;
 import static org.junit.Assert.assertTrue;
 
 /**
@@ -116,5 +117,7 @@ public class TestSingleLinkedList
         System.out.println(singleLinkedList.getAt(3).getE());
         // expect return node 4 has value = 4 after node 3 has value = 3
         assertEquals(4, singleLinkedList.after(singleLinkedList.getAt(3)).getE());
+        // return null in case get after node tail
+        assertNull(singleLinkedList.after(singleLinkedList.getAt(9)));
     }
 }

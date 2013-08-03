@@ -159,7 +159,12 @@ public class SingleLinkedList
 
     public Node after(Node at)
     {
-        return null;  //To change body of created methods use File | Settings | File Templates.
+        int currentIndex = find(at.getE());
+        if(currentIndex < size)
+        {
+            return getAt(currentIndex+1);
+        }
+        else return null;
     }
 
     public static class Node
