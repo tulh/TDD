@@ -167,6 +167,11 @@ public class SingleLinkedList
         else return null;
     }
 
+    public Node first()
+    {
+        return null;
+    }
+
     public static class Node
     {
         private Node next;

@@ -120,4 +120,12 @@ public class TestSingleLinkedList
         // return null in case get after node tail
         assertNull(singleLinkedList.after(singleLinkedList.getAt(9)));
     }
+
+    @Test
+    public void testGetFirst()
+    {
+        setUpNotEmptySingleLinkedList();
+        assertEquals(0, singleLinkedList.first().getE());
+
+    }
 }
