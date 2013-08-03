@@ -132,7 +132,20 @@ public class TestSingleLinkedList
     @Test
     public void testGetLast()
     {
-        setUpNotEmptySingleLinkedList();;
+        setUpNotEmptySingleLinkedList();
         assertEquals(9, singleLinkedList.last().getE());
+    }
+
+    @Test
+    public void testGetSizeAfterAppendAndDelete()
+    {
+        setUpNotEmptySingleLinkedList();
+        assertEquals(10, singleLinkedList.size);
+        singleLinkedList.delete(singleLinkedList.getAt(3));
+        assertEquals(9, singleLinkedList.size);
+        singleLinkedList.append("a");
+        singleLinkedList.append("b");
+        singleLinkedList.append("c");
+        assertEquals(12, singleLinkedList.size);
     }
 }
