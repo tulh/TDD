@@ -69,8 +69,8 @@ public class TestSingleLinkedList
     public void testFindFirstNodeContainObject()
     {
         setUpNotEmptySingleLinkedList();
-        // find object e=3 in the list, should return 4
-        assertEquals(4, singleLinkedList.find(3));
+        // find object e=3 in the list, should return 3
+        assertEquals(3, singleLinkedList.find(3));
         // find object = 11 not in the list, should return -1
         assertEquals(-1, singleLinkedList.find(11));
     }
@@ -86,7 +86,7 @@ public class TestSingleLinkedList
         assertEquals('c',singleLinkedList.getAt(2).getE());
         singleLinkedList.insertAfter(singleLinkedList.getAt(1),3);
         // after doing insert c is at index = 3
-        assertEquals('c',singleLinkedList.getAt(3).getE());
+        assertEquals('c', singleLinkedList.getAt(3).getE());
     }
 
     @Test
@@ -104,6 +104,7 @@ public class TestSingleLinkedList
     public void testBefore()
     {
         setUpNotEmptySingleLinkedList();
+        System.out.println(singleLinkedList.getAt(3).getE());
         // expect return node 2 has value = 2 before node 3 has value = 3
         assertEquals(2,singleLinkedList.before(singleLinkedList.getAt(3)).getE());
     }

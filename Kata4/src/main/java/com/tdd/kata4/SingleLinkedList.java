@@ -108,12 +108,15 @@ public class SingleLinkedList
         int index = 0;
         while(current != null)
         {
-            index++;
             if(current.getE().equals(o))
             {
                 return index;
             }
-            current = current.next;
+            else
+            {
+                index++;
+                current = current.next;
+            }
         }
         return -1;
     }
@@ -146,7 +149,12 @@ public class SingleLinkedList
 
     public Node before(Node at)
     {
-        return null;  //To change body of created methods use File | Settings | File Templates.
+        int currentIndex = find(at.getE());
+        if(currentIndex > 0)
+        {
+            return getAt(currentIndex-1);
+        }
+        else return null;
     }
 
     public static class Node
