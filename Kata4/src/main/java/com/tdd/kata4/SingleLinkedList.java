@@ -169,7 +169,9 @@ public class SingleLinkedList
 
     public Node first()
     {
-        return null;
+        if(size > 0)
+            return getAt(0);
+        else return null;
     }
 
     public static class Node
