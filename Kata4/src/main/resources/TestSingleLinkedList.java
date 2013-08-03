@@ -94,10 +94,10 @@ public class TestSingleLinkedList
     {
         setUpNotEmptySingleLinkedList();
         assertTrue(singleLinkedList.size == 10);
-        assertEquals(4, singleLinkedList.getAt(3));
+        assertEquals(3, singleLinkedList.getAt(3).getE());
         singleLinkedList.delete(singleLinkedList.getAt(3));
         assertEquals(9,singleLinkedList.size);
-        assertEquals(5,singleLinkedList.getAt(3));
+        assertEquals(4,singleLinkedList.getAt(3).getE());
     }
 
 }

@@ -139,6 +139,9 @@ public class SingleLinkedList
 
     public void delete(Node at)
     {
+        at.e = at.next.e;
+        at.next = at.next.next;
+        size--;
     }
 
     public static class Node
