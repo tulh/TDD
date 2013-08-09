@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<testsuite errors="0" failures="0" hostname="DELL-N4010" name="tictactoe.TicTacToeRunnerTests" tests="1" time="1.789" timestamp="2013-08-09T04:24:07">
+  <properties />
+  <testcase classname="tictactoe.TicTacToeRunnerTests" name="testUserStartAGameAndThenStop" time="1.648" />
+  <system-out><![CDATA[--Output from testUserStartAGameAndThenStop--
+]]></system-out>
+  <system-err><![CDATA[--Output from testUserStartAGameAndThenStop--
+]]></system-err>
+</testsuite>

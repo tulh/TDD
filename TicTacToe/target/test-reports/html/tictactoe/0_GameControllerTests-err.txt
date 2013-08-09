@@ -1,4 +1,0 @@
---Output from testStartGame--
---Output from testStopGame--
---Output from testUserStartAndThenStopGame--
-

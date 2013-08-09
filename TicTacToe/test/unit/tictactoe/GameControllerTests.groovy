@@ -1,6 +1,6 @@
 package tictactoe
 
-import grails.test.*
+import grails.test.ControllerUnitTestCase
 
 class GameControllerTests extends ControllerUnitTestCase {
     def gameController;
@@ -23,14 +23,6 @@ class GameControllerTests extends ControllerUnitTestCase {
     void testStopGame() {
         gameController.stopGame()
         assertEquals "Stopped", gameController.response.contentAsString
-
-    }
-
-    // 1st acceptance test
-    void testUserStartAndThenStopGame(){
-        gameController.startGame()
-
-        gameController.stopGame()
 
     }
 }
