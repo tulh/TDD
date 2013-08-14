@@ -10,7 +10,7 @@ import static org.junit.Assert.assertTrue
 @Mixin(SeleniumAware)
 class TicTacToeRunnerTests extends GroovyTestCase {
 
-    def GameController gameController
+    GameController gameController = new GameController()
     @Before
     void setUp() {
     }
@@ -20,8 +20,8 @@ class TicTacToeRunnerTests extends GroovyTestCase {
         super.tearDown()
     }
 
-    void startGame() {
-        selenium.open("http://localhost:8080/TicTacToe/game/startGame")
+    void startGame(String player) {
+        selenium.open("http://localhost:8080/TicTacToe/game/startGame?player=$player")
     }
 
     void stopGame() {
@@ -29,34 +29,38 @@ class TicTacToeRunnerTests extends GroovyTestCase {
     }
 
     void gameHasStarted() {
-        assertTrue selenium.isTextPresent("Started")
+        assertTrue selenium.isTextPresent(GameController.X)
     }
 
     void gameHasStopped() {
         assertTrue selenium.isTextPresent("Stopped")
     }
 
+    void move(int i) {
+        selenium.open("http://localhost:8080/TicTacToe/game/move?i=$i")
+    }
+
     void userHasMovedTo(int i){
-        assertTrue selenium.isTextPresent(i)
+        assertTrue selenium.isTextPresent(i.toString())
     }
 
     @Test
     void testUserStartAGameAndThenStop() {
-        gameController.startGame(gameController.X)
+        startGame("x");
         gameHasStarted()
-        gameController.stopGame()
+        stopGame()
         gameHasStopped()
     }
 
     @Test
     void testUserStartAGameAndMovesThenStop() {
-        gameController.startGame(gameController.X)
-        gameController.waitsForMove(gameController.X)
-        gameController.move(1)
+        startGame("x")
+        //gameController.waitsForMove(gameController.X)
+        move(1)
         userHasMovedTo(1)
-        gameController.waitsForMove(gameController.O)
-        gameController.move(2)
+        //gameController.waitsForMove(gameController.O)
+        move(2)
         userHasMovedTo(2)
-        gameController.stopGame()
+        stopGame()
     }
 }
