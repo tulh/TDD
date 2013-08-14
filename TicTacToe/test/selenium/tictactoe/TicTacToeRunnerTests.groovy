@@ -1,9 +1,11 @@
 package tictactoe
 
-import grails.plugins.selenium.*
-import org.junit.*
-import static org.junit.Assert.*
-import static org.hamcrest.Matchers.*
+import grails.plugins.selenium.SeleniumAware
+import org.junit.After
+import org.junit.Before
+import org.junit.Test
+
+import static org.junit.Assert.assertTrue
 
 @Mixin(SeleniumAware)
 class TicTacToeRunnerTests extends GroovyTestCase {
@@ -40,21 +42,21 @@ class TicTacToeRunnerTests extends GroovyTestCase {
 
     @Test
     void testUserStartAGameAndThenStop() {
-        startGame()
+        gameController.startGame(gameController.X)
         gameHasStarted()
-        stopGame()
+        gameController.stopGame()
         gameHasStopped()
     }
 
     @Test
     void testUserStartAGameAndMovesThenStop() {
-        startGame(gameController.X)
+        gameController.startGame(gameController.X)
         gameController.waitsForMove(gameController.X)
         gameController.move(1)
         userHasMovedTo(1)
         gameController.waitsForMove(gameController.O)
         gameController.move(2)
         userHasMovedTo(2)
-        stopGame()
+        gameController.stopGame()
     }
 }

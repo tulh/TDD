@@ -1,20 +1,22 @@
 package tictactoe
 
 class GameController {
-    final static String X = "x"
-    final static String O = "o"
+    public static final String X = "x"
+    public static final String O = "o"
 
-    def startGame = {
-    render("Started")
+    def startGame(String player){
+        render("Started")
     }
 
     def stopGame = {
-    render("Stopped")
+        render("Stopped")
     }
 
     def move = {
         render params.i;
     }
 
+    def waitsForMove(String player) {
 
+    }
 }
