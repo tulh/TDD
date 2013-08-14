@@ -7,32 +7,54 @@ import static org.hamcrest.Matchers.*
 
 @Mixin(SeleniumAware)
 class TicTacToeRunnerTests extends GroovyTestCase {
-    @Before void setUp() {
+
+    def GameController gameController
+    @Before
+    void setUp() {
     }
 
-    @After void tearDown() {
+    @After
+    void tearDown() {
         super.tearDown()
     }
 
-    void startGame(){
+    void startGame() {
         selenium.open("http://localhost:8080/TicTacToe/game/startGame")
     }
 
-    void stopGame(){
+    void stopGame() {
         selenium.open("http://localhost:8080/TicTacToe/game/stopGame")
     }
 
-    void gameHasStarted(){
+    void gameHasStarted() {
         assertTrue selenium.isTextPresent("Started")
     }
 
-    void gameHasStopped(){
+    void gameHasStopped() {
         assertTrue selenium.isTextPresent("Stopped")
     }
-    @Test void testUserStartAGameAndThenStop() {
+
+    void userHasMovedTo(int i){
+        assertTrue selenium.isTextPresent(i)
+    }
+
+    @Test
+    void testUserStartAGameAndThenStop() {
         startGame()
         gameHasStarted()
         stopGame()
         gameHasStopped()
+    }
+
+    @Test
+    void testUserStartAGameAndMovesThenStop() {
+        startGame(gameController.X)
+        gameController.waitsForMove(gameController.X)
+        gameController.move(1)
+        userHasMovedTo(1)
+        gameController.waitsForMove(gameController.O)
+        gameController.move(2)
+        userHasMovedTo(2)
+        stopGame()
     }
 }
