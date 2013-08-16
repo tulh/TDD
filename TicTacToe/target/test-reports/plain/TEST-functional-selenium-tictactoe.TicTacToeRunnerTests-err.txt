@@ -1,2 +1,3 @@
---Output from testUserStartAGameAndThenStop--
+--Output from testPlayerStartAGameAndThenStop--
 --Output from testPlayerStartAGameAndMovesThenStop--
+--Output from testPlayerStartAGameAndPlayUntilHeWin--

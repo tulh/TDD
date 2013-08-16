@@ -10,7 +10,7 @@ class GameController {
     }
 
     def move = {
-        render params.i;
+        render params.i + "," + params.j;
     }
 
     def waitsForMove = {
