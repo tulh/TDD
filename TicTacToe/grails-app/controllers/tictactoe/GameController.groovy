@@ -1,11 +1,8 @@
 package tictactoe
 
 class GameController {
-    public static final String X = "x"
-    public static final String O = "o"
-
     def startGame = {
-        render(params.player)
+        render(params.player + " move first")
     }
 
     def stopGame = {

@@ -1,10 +1,13 @@
 Testsuite: tictactoe.TicTacToeRunnerTests
-Tests run: 1, Failures: 0, Errors: 0, Time elapsed: 1.789 sec
+Tests run: 2, Failures: 0, Errors: 0, Time elapsed: 1.308 sec
 ------------- Standard Output ---------------
 --Output from testUserStartAGameAndThenStop--
+--Output from testPlayerStartAGameAndMovesThenStop--
 ------------- ---------------- ---------------
 ------------- Standard Error -----------------
 --Output from testUserStartAGameAndThenStop--
+--Output from testPlayerStartAGameAndMovesThenStop--
 ------------- ---------------- ---------------
 
-Testcase: testUserStartAGameAndThenStop took 1.648 sec
+Testcase: testUserStartAGameAndThenStop took 0.966 sec
+Testcase: testPlayerStartAGameAndMovesThenStop took 0.292 sec

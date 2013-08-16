@@ -1,9 +1,12 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<testsuite errors="0" failures="0" hostname="DELL-N4010" name="tictactoe.TicTacToeRunnerTests" tests="1" time="1.789" timestamp="2013-08-09T04:24:07">
+<testsuite errors="0" failures="0" hostname="DELL-N4010" name="tictactoe.TicTacToeRunnerTests" tests="2" time="1.308" timestamp="2013-08-16T01:47:32">
   <properties />
-  <testcase classname="tictactoe.TicTacToeRunnerTests" name="testUserStartAGameAndThenStop" time="1.648" />
+  <testcase classname="tictactoe.TicTacToeRunnerTests" name="testUserStartAGameAndThenStop" time="0.966" />
+  <testcase classname="tictactoe.TicTacToeRunnerTests" name="testPlayerStartAGameAndMovesThenStop" time="0.292" />
   <system-out><![CDATA[--Output from testUserStartAGameAndThenStop--
+--Output from testPlayerStartAGameAndMovesThenStop--
 ]]></system-out>
   <system-err><![CDATA[--Output from testUserStartAGameAndThenStop--
+--Output from testPlayerStartAGameAndMovesThenStop--
 ]]></system-err>
 </testsuite>

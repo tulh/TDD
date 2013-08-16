@@ -5,12 +5,12 @@ import org.junit.After
 import org.junit.Before
 import org.junit.Test
 
+import static org.junit.Assert.assertNotNull
 import static org.junit.Assert.assertTrue
 
 @Mixin(SeleniumAware)
 class TicTacToeRunnerTests extends GroovyTestCase {
 
-    GameController gameController = new GameController()
     @Before
     void setUp() {
     }
@@ -29,7 +29,7 @@ class TicTacToeRunnerTests extends GroovyTestCase {
     }
 
     void gameHasStarted() {
-        assertTrue selenium.isTextPresent(GameController.X)
+        assertNotNull(selenium.getBodyText())
     }
 
     void gameHasStopped() {
@@ -40,8 +40,12 @@ class TicTacToeRunnerTests extends GroovyTestCase {
         selenium.open("http://localhost:8080/TicTacToe/game/move?i=$i")
     }
 
-    void userHasMovedTo(int i){
+    void playerHasMovedTo(int i){
         assertTrue selenium.isTextPresent(i.toString())
+    }
+
+    void gameDisplaysThePlayerMoveFirst(String player) {
+        assertTrue selenium.isTextPresent(player + " move first")
     }
 
     @Test
@@ -53,14 +57,13 @@ class TicTacToeRunnerTests extends GroovyTestCase {
     }
 
     @Test
-    void testUserStartAGameAndMovesThenStop() {
+    void testPlayerStartAGameAndMovesThenStop() {
         startGame("x")
-        //gameController.waitsForMove(gameController.X)
+        gameDisplaysThePlayerMoveFirst("x")
         move(1)
-        userHasMovedTo(1)
-        //gameController.waitsForMove(gameController.O)
+        playerHasMovedTo(1)
         move(2)
-        userHasMovedTo(2)
+        playerHasMovedTo(2)
         stopGame()
     }
 }
