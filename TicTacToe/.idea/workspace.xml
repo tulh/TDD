@@ -5,22 +5,24 @@
     <ignored path="TicTacToe.iws" />
     <ignored path=".idea/workspace.xml" />
     <ignored path="$USER_HOME$/.grails/" />
-    <file path="/a.dummy" changelist="edd281b1-853a-427f-8824-d6c1f3a489ce" time="1376710463903" ignored="false" />
-    <file path="/Dummy.txt" changelist="edd281b1-853a-427f-8824-d6c1f3a489ce" time="1376710464746" ignored="false" />
+    <file path="/a.dummy" changelist="edd281b1-853a-427f-8824-d6c1f3a489ce" time="1376713304084" ignored="false" />
+    <file path="/Dummy.txt" changelist="edd281b1-853a-427f-8824-d6c1f3a489ce" time="1376713307285" ignored="false" />
     <file path="/GameControllerTests.groovy" changelist="edd281b1-853a-427f-8824-d6c1f3a489ce" time="1375929832660" ignored="false" />
-    <file path="/GameController.groovy" changelist="edd281b1-853a-427f-8824-d6c1f3a489ce" time="1376618264028" ignored="false" />
+    <file path="/GameController.groovy" changelist="edd281b1-853a-427f-8824-d6c1f3a489ce" time="1376712757968" ignored="false" />
     <file path="/Dummy.groovy" changelist="edd281b1-853a-427f-8824-d6c1f3a489ce" time="1375839638686" ignored="false" />
     <file path="/TicTacToeRunnerTests.groovy" changelist="edd281b1-853a-427f-8824-d6c1f3a489ce" time="1376618591634" ignored="false" />
     <file path="/SeleniumConfig.groovy" changelist="edd281b1-853a-427f-8824-d6c1f3a489ce" time="1376616433053" ignored="false" />
-    <file path="/fragment.java" changelist="edd281b1-853a-427f-8824-d6c1f3a489ce" time="1376708380132" ignored="false" />
-    <file path="/Player.groovy" changelist="edd281b1-853a-427f-8824-d6c1f3a489ce" time="1376706976256" ignored="false" />
+    <file path="/fragment.java" changelist="edd281b1-853a-427f-8824-d6c1f3a489ce" time="1376713181065" ignored="false" />
+    <file path="/Player.groovy" changelist="edd281b1-853a-427f-8824-d6c1f3a489ce" time="1376711892656" ignored="false" />
     <file path="/Board.groovy" changelist="edd281b1-853a-427f-8824-d6c1f3a489ce" time="1376708136128" ignored="false" />
     <file path="/Cell.groovy" changelist="edd281b1-853a-427f-8824-d6c1f3a489ce" time="1376709700866" ignored="false" />
     <file path="/Character.java" changelist="edd281b1-853a-427f-8824-d6c1f3a489ce" time="1376707864682" ignored="false" />
-    <file path="/BoardService.groovy" changelist="edd281b1-853a-427f-8824-d6c1f3a489ce" time="1376710130617" ignored="false" />
+    <file path="/BoardService.groovy" changelist="edd281b1-853a-427f-8824-d6c1f3a489ce" time="1376711918578" ignored="false" />
     <file path="/BoardServiceTests.groovy" changelist="edd281b1-853a-427f-8824-d6c1f3a489ce" time="1376709240683" ignored="false" />
     <file path="$PROJECT_DIR$/target/test-reports/html/tictactoe/0_BoardServiceTests.html" changelist="edd281b1-853a-427f-8824-d6c1f3a489ce" time="1376710155501" ignored="false" />
     <file path="$PROJECT_DIR$/target/test-reports/html/tictactoe/0_BoardServiceTests-errors.html" changelist="edd281b1-853a-427f-8824-d6c1f3a489ce" time="1376710155501" ignored="false" />
+    <file path="$PROJECT_DIR$/web-app/selenium/core/scripts/user-extensions.js" changelist="edd281b1-853a-427f-8824-d6c1f3a489ce" time="1376713164731" ignored="false" />
+    <file path="$PROJECT_DIR$/web-app/WEB-INF/tld/c.tld" changelist="edd281b1-853a-427f-8824-d6c1f3a489ce" time="1376713164731" ignored="false" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -89,7 +91,7 @@
       <file leaf-file-name="GameController.groovy" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/grails-app/controllers/tictactoe/GameController.groovy">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="12" column="18" selection-start="206" selection-end="206" vertical-scroll-proportion="-8.869565">
+            <state line="28" column="42" selection-start="600" selection-end="600" vertical-scroll-proportion="-4.0434785">
               <folding />
             </state>
           </provider>
@@ -98,7 +100,7 @@
       <file leaf-file-name="TicTacToeRunnerTests.groovy" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/test/selenium/tictactoe/TicTacToeRunnerTests.groovy">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="101" column="19" selection-start="2069" selection-end="2069" vertical-scroll-proportion="0.0">
+            <state line="72" column="19" selection-start="1467" selection-end="1467" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -107,7 +109,7 @@
       <file leaf-file-name="GameControllerTests.groovy" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/test/unit/tictactoe/GameControllerTests.groovy">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="19" column="101" selection-start="448" selection-end="448" vertical-scroll-proportion="-12.26087">
+            <state line="16" column="17" selection-start="331" selection-end="331" vertical-scroll-proportion="-6.0869565">
               <folding />
             </state>
           </provider>
@@ -119,7 +121,7 @@
             <state />
           </provider>
           <provider selected="true" editor-type-id="text-editor">
-            <state line="3" column="0" selection-start="34" selection-end="34" vertical-scroll-proportion="-1.0625">
+            <state line="6" column="8" selection-start="111" selection-end="111" vertical-scroll-proportion="-2.125">
               <folding />
             </state>
           </provider>
@@ -140,7 +142,7 @@
       <file leaf-file-name="BoardService.groovy" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/grails-app/services/tictactoe/BoardService.groovy">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="13" column="28" selection-start="178" selection-end="178" vertical-scroll-proportion="0.41154563">
+            <state line="23" column="31" selection-start="487" selection-end="487" vertical-scroll-proportion="0.669967">
               <folding />
             </state>
           </provider>
@@ -149,16 +151,16 @@
       <file leaf-file-name="BoardServiceTests.groovy" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/test/unit/tictactoe/BoardServiceTests.groovy">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="18" column="0" selection-start="332" selection-end="332" vertical-scroll-proportion="0.0">
+            <state line="16" column="16" selection-start="279" selection-end="279" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
       <file leaf-file-name="Character.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/grails-app/domain/tictactoe/Character.java">
+        <entry file="file://$PROJECT_DIR$/src/groovy/tictactoe/Character.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="12" column="25" selection-start="151" selection-end="151" vertical-scroll-proportion="0.0">
+            <state line="6" column="12" selection-start="73" selection-end="73" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -170,7 +172,7 @@
             <state />
           </provider>
           <provider selected="true" editor-type-id="text-editor">
-            <state line="7" column="0" selection-start="77" selection-end="77" vertical-scroll-proportion="-2.4791667">
+            <state line="5" column="8" selection-start="64" selection-end="64" vertical-scroll-proportion="-1.7708334">
               <folding />
             </state>
           </provider>
@@ -188,16 +190,18 @@
       <list>
         <option value="$PROJECT_DIR$/test/unit/tictactoe/GameControllerTests.groovy" />
         <option value="$PROJECT_DIR$/grails-app/conf/SeleniumConfig.groovy" />
-        <option value="$PROJECT_DIR$/grails-app/controllers/tictactoe/GameController.groovy" />
-        <option value="$PROJECT_DIR$/test/selenium/tictactoe/TicTacToeRunnerTests.groovy" />
         <option value="$PROJECT_DIR$/target/test-reports/TESTS-TestSuites.xml" />
-        <option value="$PROJECT_DIR$/grails-app/domain/tictactoe/Player.groovy" />
         <option value="$PROJECT_DIR$/test/unit/tictactoe/BoardServiceTest.groovy" />
         <option value="$PROJECT_DIR$/test/unit/tictactoe/BoardServiceTests.groovy" />
         <option value="$PROJECT_DIR$/grails-app/domain/tictactoe/Board.groovy" />
-        <option value="$PROJECT_DIR$/grails-app/services/tictactoe/BoardService.groovy" />
         <option value="$PROJECT_DIR$/grails-app/domain/tictactoe/Cell.groovy" />
+        <option value="$PROJECT_DIR$/test/selenium/tictactoe/TicTacToeRunnerTests.groovy" />
+        <option value="$PROJECT_DIR$/grails-app/services/tictactoe/BoardService.groovy" />
+        <option value="$PROJECT_DIR$/grails-app/domain/tictactoe/Player.groovy" />
+        <option value="$PROJECT_DIR$/grails-app/controllers/tictactoe/GameController.groovy" />
+        <option value="$PROJECT_DIR$/grails-app/domain/Character.java" />
         <option value="$PROJECT_DIR$/grails-app/domain/tictactoe/Character.java" />
+        <option value="$PROJECT_DIR$/src/groovy/tictactoe/Character.java" />
       </list>
     </option>
   </component>
@@ -371,6 +375,28 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="groovy" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="tictactoe" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="TicTacToe" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="TicTacToe" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
               <option name="myItemId" value="grails-app" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
@@ -499,6 +525,10 @@
     <key name="CreateTestDialog.RecentsKey">
       <recent name="tictactoe" />
     </key>
+    <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
+      <recent name="tictactoe" />
+      <recent name="" />
+    </key>
   </component>
   <component name="Regex">
     <option name="pos1" value="218" />
@@ -512,18 +542,6 @@
     <option name="showLabels" value="true" />
   </component>
   <component name="RunManager" selected="Grails.testInitBoard()">
-    <configuration default="false" name="GameControllerTests" type="GrailsRunConfigurationType" factoryName="Grails" temporary="true">
-      <module name="TicTacToe" />
-      <setting name="vmparams" value="" />
-      <setting name="cmdLine" value="test-app unit: tictactoe.GameController -echoOut" />
-      <setting name="depsClasspath" value="true" />
-      <setting name="passParentEnv" value="true" />
-      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
-      <setting name="launchBrowser" value="false" />
-      <RunnerSettings RunnerId="Run" />
-      <ConfigurationWrapper RunnerId="Run" />
-      <method />
-    </configuration>
     <configuration default="false" name="TicTacToeRunnerTests" type="JUnit" factoryName="JUnit" temporary="true">
       <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
         <pattern>
@@ -598,6 +616,18 @@
       <module name="TicTacToe" />
       <setting name="vmparams" value="" />
       <setting name="cmdLine" value="test-app unit: tictactoe.BoardService.testInitBoard -echoOut" />
+      <setting name="depsClasspath" value="true" />
+      <setting name="passParentEnv" value="true" />
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
+      <setting name="launchBrowser" value="false" />
+      <RunnerSettings RunnerId="Run" />
+      <ConfigurationWrapper RunnerId="Run" />
+      <method />
+    </configuration>
+    <configuration default="false" name="testStartGame()" type="GrailsRunConfigurationType" factoryName="Grails" temporary="true">
+      <module name="TicTacToe" />
+      <setting name="vmparams" value="" />
+      <setting name="cmdLine" value="test-app unit: tictactoe.GameController.testStartGame -echoOut" />
       <setting name="depsClasspath" value="true" />
       <setting name="passParentEnv" value="true" />
       <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
@@ -733,19 +763,19 @@
     <list size="7">
       <item index="0" class="java.lang.String" itemvalue="Grails.Grails:TicTacToe" />
       <item index="1" class="java.lang.String" itemvalue="Grails.Selenium test" />
-      <item index="2" class="java.lang.String" itemvalue="Grails.GameControllerTests" />
-      <item index="3" class="java.lang.String" itemvalue="JUnit.TicTacToeRunnerTests" />
-      <item index="4" class="java.lang.String" itemvalue="JUnit.TicTacToeRunnerTests.something" />
-      <item index="5" class="java.lang.String" itemvalue="Grails.BoardServiceTests" />
-      <item index="6" class="java.lang.String" itemvalue="Grails.testInitBoard()" />
+      <item index="2" class="java.lang.String" itemvalue="JUnit.TicTacToeRunnerTests" />
+      <item index="3" class="java.lang.String" itemvalue="JUnit.TicTacToeRunnerTests.something" />
+      <item index="4" class="java.lang.String" itemvalue="Grails.BoardServiceTests" />
+      <item index="5" class="java.lang.String" itemvalue="Grails.testInitBoard()" />
+      <item index="6" class="java.lang.String" itemvalue="Grails.testStartGame()" />
     </list>
     <recent_temporary>
       <list size="5">
         <item index="0" class="java.lang.String" itemvalue="Grails.testInitBoard()" />
-        <item index="1" class="java.lang.String" itemvalue="Grails.BoardServiceTests" />
-        <item index="2" class="java.lang.String" itemvalue="JUnit.TicTacToeRunnerTests" />
-        <item index="3" class="java.lang.String" itemvalue="JUnit.TicTacToeRunnerTests.something" />
-        <item index="4" class="java.lang.String" itemvalue="Grails.GameControllerTests" />
+        <item index="1" class="java.lang.String" itemvalue="Grails.testStartGame()" />
+        <item index="2" class="java.lang.String" itemvalue="Grails.BoardServiceTests" />
+        <item index="3" class="java.lang.String" itemvalue="JUnit.TicTacToeRunnerTests" />
+        <item index="4" class="java.lang.String" itemvalue="JUnit.TicTacToeRunnerTests.something" />
       </list>
     </recent_temporary>
     <configuration name="&lt;template&gt;" type="WebApp" default="true" selected="false">
@@ -773,15 +803,16 @@
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="IDEtalk Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="IDEtalk" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.40068492" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.40068492" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="CDI" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.27727273" sideWeight="0.40068492" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.59931505" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.27727273" sideWeight="0.59931505" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.37842464" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="JetGradle" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32876712" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Grails View" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32954547" sideWeight="0.6717949" order="2" side_tool="false" content_ui="tabs" />
@@ -795,7 +826,6 @@
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Atlassian " active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32991454" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
     </layout>
@@ -919,37 +949,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/grails-app/domain/tictactoe/Player.groovy">
-      <provider editor-type-id="org.jetbrains.plugins.grails.perspectives.DomainClassesRelationsEditorProvider">
-        <state />
-      </provider>
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="3" column="0" selection-start="34" selection-end="34" vertical-scroll-proportion="-1.0625">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/grails-app/controllers/tictactoe/GameController.groovy">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="12" column="18" selection-start="206" selection-end="206" vertical-scroll-proportion="-8.869565">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/test/unit/tictactoe/GameControllerTests.groovy">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="19" column="101" selection-start="448" selection-end="448" vertical-scroll-proportion="-12.26087">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/test/selenium/tictactoe/TicTacToeRunnerTests.groovy">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="101" column="19" selection-start="2069" selection-end="2069" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/grails-app/domain/tictactoe/Board.groovy">
       <provider editor-type-id="org.jetbrains.plugins.grails.perspectives.DomainClassesRelationsEditorProvider">
         <state />
@@ -960,16 +959,19 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/test/unit/tictactoe/BoardServiceTests.groovy">
+    <entry file="jar://C:/Program Files/Java/jdk1.6.0_43/src.zip!/java/lang/String.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="18" column="0" selection-start="332" selection-end="332" vertical-scroll-proportion="0.0">
+        <state line="91" column="19" selection-start="3593" selection-end="3593" vertical-scroll-proportion="0.33206108">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/grails-app/domain/tictactoe/Character.java">
+    <entry file="file://$PROJECT_DIR$/grails-app/domain/tictactoe/Player.groovy">
+      <provider editor-type-id="org.jetbrains.plugins.grails.perspectives.DomainClassesRelationsEditorProvider">
+        <state />
+      </provider>
       <provider selected="true" editor-type-id="text-editor">
-        <state line="12" column="25" selection-start="151" selection-end="151" vertical-scroll-proportion="0.0">
+        <state line="6" column="8" selection-start="111" selection-end="111" vertical-scroll-proportion="-2.125">
           <folding />
         </state>
       </provider>
@@ -979,14 +981,49 @@
         <state />
       </provider>
       <provider selected="true" editor-type-id="text-editor">
-        <state line="7" column="0" selection-start="77" selection-end="77" vertical-scroll-proportion="-2.4791667">
+        <state line="5" column="8" selection-start="64" selection-end="64" vertical-scroll-proportion="-1.7708334">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/groovy/tictactoe/Character.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="6" column="12" selection-start="73" selection-end="73" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/test/unit/tictactoe/GameControllerTests.groovy">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="16" column="17" selection-start="331" selection-end="331" vertical-scroll-proportion="-6.0869565">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/test/unit/tictactoe/BoardServiceTests.groovy">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="16" column="16" selection-start="279" selection-end="279" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/test/selenium/tictactoe/TicTacToeRunnerTests.groovy">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="72" column="19" selection-start="1467" selection-end="1467" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/grails-app/controllers/tictactoe/GameController.groovy">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="28" column="42" selection-start="600" selection-end="600" vertical-scroll-proportion="-4.0434785">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/grails-app/services/tictactoe/BoardService.groovy">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="13" column="28" selection-start="178" selection-end="178" vertical-scroll-proportion="0.41154563">
+        <state line="23" column="31" selection-start="487" selection-end="487" vertical-scroll-proportion="0.669967">
           <folding />
         </state>
       </provider>

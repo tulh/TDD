@@ -147,7 +147,7 @@ context.
     </attribute>
     <attribute>
         <description>
-Character encoding of the content at the input
+tictactoe.Character encoding of the content at the input
 resource.
         </description>
         <name>charEncoding</name>

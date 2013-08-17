@@ -43,14 +43,14 @@ class TicTacToeRunnerTests extends GroovyTestCase
         assertTrue selenium.isTextPresent("Stopped")
     }
 
-    void move(int i, int j)
+    void move(int row, int col)
     {
-        selenium.open("http://localhost:8080/TicTacToe/game/move?i=$i&j=$j")
+        selenium.open("http://localhost:8080/TicTacToe/game/move?row=$row&col=$col")
     }
 
-    void playerHasMovedTo(int i, int j)
+    void playerHasMovedTo(int row, int col)
     {
-        assertTrue selenium.isTextPresent(i.toString() + "," + j.toString())
+        assertTrue selenium.isTextPresent(row.toString() + "," + col.toString())
     }
 
     void gameDisplaysThePlayerMoveFirst(String player)

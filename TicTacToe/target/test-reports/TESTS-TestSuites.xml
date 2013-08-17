@@ -1,14 +1,36 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <testsuites>
-  <testsuite errors="0" failures="0" hostname="huynhlbq-PC" id="0" name="BoardServiceTests" package="tictactoe" tests="1" time="0.632" timestamp="2013-08-17T03:36:59">
+  <testsuite errors="0" failures="2" hostname="huynhlbq-PC" id="0" name="TicTacToeRunnerTests" package="tictactoe" tests="3" time="3.73" timestamp="2013-08-17T04:22:28">
       <properties />
 
-      <testcase classname="tictactoe.BoardServiceTests" name="testInitBoard" time="0.592" />
+      <testcase classname="tictactoe.TicTacToeRunnerTests" name="testPlayerStartAGameAndThenStop" time="1.539" />
 
-      <system-out><![CDATA[--Output from testInitBoard--
+      <testcase classname="tictactoe.TicTacToeRunnerTests" name="testPlayerStartAGameAndMovesThenStop" time="1.653">
+          <failure message="java.lang.AssertionError: " type="junit.framework.AssertionFailedError">junit.framework.AssertionFailedError: java.lang.AssertionError: 
+	at tictactoe.TicTacToeRunnerTests.playerHasMovedTo(TicTacToeRunnerTests.groovy:53)
+	at tictactoe.TicTacToeRunnerTests$playerHasMovedTo.callCurrent(Unknown Source)
+	at tictactoe.TicTacToeRunnerTests.testPlayerStartAGameAndMovesThenStop(TicTacToeRunnerTests.groovy:76)
+</failure>
+
+      </testcase>
+
+      <testcase classname="tictactoe.TicTacToeRunnerTests" name="testPlayerStartAGameAndPlayUntilHeWin" time="0.435">
+          <failure message="java.lang.AssertionError: " type="junit.framework.AssertionFailedError">junit.framework.AssertionFailedError: java.lang.AssertionError: 
+	at tictactoe.TicTacToeRunnerTests.playerHasMovedTo(TicTacToeRunnerTests.groovy:53)
+	at tictactoe.TicTacToeRunnerTests$playerHasMovedTo.callCurrent(Unknown Source)
+	at tictactoe.TicTacToeRunnerTests.testPlayerStartAGameAndPlayUntilHeWin(TicTacToeRunnerTests.groovy:93)
+</failure>
+
+      </testcase>
+
+      <system-out><![CDATA[--Output from testPlayerStartAGameAndThenStop--
+--Output from testPlayerStartAGameAndMovesThenStop--
+--Output from testPlayerStartAGameAndPlayUntilHeWin--
 ]]></system-out>
 
-      <system-err><![CDATA[--Output from testInitBoard--
+      <system-err><![CDATA[--Output from testPlayerStartAGameAndThenStop--
+--Output from testPlayerStartAGameAndMovesThenStop--
+--Output from testPlayerStartAGameAndPlayUntilHeWin--
 ]]></system-err>
 
   </testsuite>
