@@ -1,8 +1,8 @@
 package tictactoe
 
 class GameController {
-    def BoardService boardService
-    def Board board
+    def BoardService boardService = new BoardService()
+    def Board board = new Board()
     def Character player1
     def Character player2
     def Character activePlayer
@@ -18,6 +18,7 @@ class GameController {
         }
         //set player1 active
         activePlayer = player1
+        //boardService = new BoardService()
         board = boardService.initAllCell()
         render(params.player + " move first")
     }
@@ -27,9 +28,9 @@ class GameController {
     }
 
     def move = {
-        Cell cell = boardService.findCellByRowAndCol(Integer.parseInt(params.row), Integer.parseInt(params.col))
+        println("BOARD IS " + board)
+        Cell cell = boardService.findCellByRowAndCol(Integer.parseInt(params.row), Integer.parseInt(params.col),board)
         boardService.updateCell(cell, activePlayer.toString())
-        changeActivePlayer()
         checkGameStatus()
         render params.row + "," + params.col;
     }
@@ -38,13 +39,22 @@ class GameController {
         activePlayer = (activePlayer == player1) ? player2 : player1
     }
 
-    def checkGameStatus() {
+    String checkGameStatus() {
         //check if user win
-
-        if (isAllFieldFilled()) {
-            //game draw
+        if(isWinner(activePlayer))
+        {
+            return "winner is: " + activePlayer.toString()
         }
+        else if (isAllFieldFilled()) {
+            //game draw
+            return "draw"
+        }
+        else return "continue"
 
+    }
+
+    boolean isWinner(Character character) {
+        return false
     }
 
     boolean isAllFieldFilled() {

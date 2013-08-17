@@ -25,4 +25,11 @@ class GameControllerTests extends ControllerUnitTestCase {
         assertEquals "Stopped", gameController.response.contentAsString
 
     }
+
+    void testMove() {
+        gameController.startGame()
+        gameController.move(1,1)
+        assertEquals "Stopped", gameController.response.contentAsString
+
+    }
 }
