@@ -1,24 +1,17 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <testsuites>
-  <testsuite errors="0" failures="2" hostname="huynhlbq-PC" id="0" name="TicTacToeRunnerTests" package="tictactoe" tests="3" time="3.73" timestamp="2013-08-17T04:22:28">
+  <testsuite errors="0" failures="1" hostname="huynhlbq-PC" id="0" name="TicTacToeRunnerTests" package="tictactoe" tests="3" time="3.672" timestamp="2013-08-17T04:49:02">
       <properties />
 
-      <testcase classname="tictactoe.TicTacToeRunnerTests" name="testPlayerStartAGameAndThenStop" time="1.539" />
+      <testcase classname="tictactoe.TicTacToeRunnerTests" name="testPlayerStartAGameAndThenStop" time="1.322" />
 
-      <testcase classname="tictactoe.TicTacToeRunnerTests" name="testPlayerStartAGameAndMovesThenStop" time="1.653">
+      <testcase classname="tictactoe.TicTacToeRunnerTests" name="testPlayerStartAGameAndMovesThenStop" time="1.042" />
+
+      <testcase classname="tictactoe.TicTacToeRunnerTests" name="testPlayerStartAGameAndPlayUntilHeWin" time="1.218">
           <failure message="java.lang.AssertionError: " type="junit.framework.AssertionFailedError">junit.framework.AssertionFailedError: java.lang.AssertionError: 
-	at tictactoe.TicTacToeRunnerTests.playerHasMovedTo(TicTacToeRunnerTests.groovy:53)
-	at tictactoe.TicTacToeRunnerTests$playerHasMovedTo.callCurrent(Unknown Source)
-	at tictactoe.TicTacToeRunnerTests.testPlayerStartAGameAndMovesThenStop(TicTacToeRunnerTests.groovy:76)
-</failure>
-
-      </testcase>
-
-      <testcase classname="tictactoe.TicTacToeRunnerTests" name="testPlayerStartAGameAndPlayUntilHeWin" time="0.435">
-          <failure message="java.lang.AssertionError: " type="junit.framework.AssertionFailedError">junit.framework.AssertionFailedError: java.lang.AssertionError: 
-	at tictactoe.TicTacToeRunnerTests.playerHasMovedTo(TicTacToeRunnerTests.groovy:53)
-	at tictactoe.TicTacToeRunnerTests$playerHasMovedTo.callCurrent(Unknown Source)
-	at tictactoe.TicTacToeRunnerTests.testPlayerStartAGameAndPlayUntilHeWin(TicTacToeRunnerTests.groovy:93)
+	at tictactoe.TicTacToeRunnerTests.gameHasStopped(TicTacToeRunnerTests.groovy:43)
+	at tictactoe.TicTacToeRunnerTests$gameHasStopped.callCurrent(Unknown Source)
+	at tictactoe.TicTacToeRunnerTests.testPlayerStartAGameAndPlayUntilHeWin(TicTacToeRunnerTests.groovy:103)
 </failure>
 
       </testcase>
