@@ -6,6 +6,7 @@ class GameController {
     def Character player1
     def Character player2
     def Character activePlayer
+    boolean allCellFilled
 
     def startGame = {
         if (params.player == 'x') {
@@ -29,6 +30,7 @@ class GameController {
         Cell cell = boardService.findCellByRowAndCol(Integer.parseInt(params.row), Integer.parseInt(params.col))
         boardService.updateCell(cell, activePlayer.toString())
         changeActivePlayer()
+        checkGameStatus()
         render params.row + "," + params.col;
     }
 
@@ -36,7 +38,20 @@ class GameController {
         activePlayer = (activePlayer == player1) ? player2 : player1
     }
 
-    def waitsForMove = {
+    def checkGameStatus() {
+        //check if user win
 
+        if (isAllFieldFilled()) {
+            //game draw
+        }
+
+    }
+
+    boolean isAllFieldFilled() {
+        for (Cell cell : board.getAllCell()) {
+            if (cell.getValue() == null)
+                return false;
+        }
+        return true
     }
 }

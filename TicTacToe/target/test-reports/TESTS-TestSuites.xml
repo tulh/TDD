@@ -1,29 +1,14 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <testsuites>
-  <testsuite errors="0" failures="1" hostname="huynhlbq-PC" id="0" name="TicTacToeRunnerTests" package="tictactoe" tests="3" time="3.672" timestamp="2013-08-17T04:49:02">
+  <testsuite errors="0" failures="0" hostname="huynhlbq-PC" id="0" name="BoardServiceTests" package="tictactoe" tests="1" time="0.659" timestamp="2013-08-17T09:28:01">
       <properties />
 
-      <testcase classname="tictactoe.TicTacToeRunnerTests" name="testPlayerStartAGameAndThenStop" time="1.322" />
+      <testcase classname="tictactoe.BoardServiceTests" name="testFindCellByRowAndCol" time="0.616" />
 
-      <testcase classname="tictactoe.TicTacToeRunnerTests" name="testPlayerStartAGameAndMovesThenStop" time="1.042" />
-
-      <testcase classname="tictactoe.TicTacToeRunnerTests" name="testPlayerStartAGameAndPlayUntilHeWin" time="1.218">
-          <failure message="java.lang.AssertionError: " type="junit.framework.AssertionFailedError">junit.framework.AssertionFailedError: java.lang.AssertionError: 
-	at tictactoe.TicTacToeRunnerTests.gameHasStopped(TicTacToeRunnerTests.groovy:43)
-	at tictactoe.TicTacToeRunnerTests$gameHasStopped.callCurrent(Unknown Source)
-	at tictactoe.TicTacToeRunnerTests.testPlayerStartAGameAndPlayUntilHeWin(TicTacToeRunnerTests.groovy:103)
-</failure>
-
-      </testcase>
-
-      <system-out><![CDATA[--Output from testPlayerStartAGameAndThenStop--
---Output from testPlayerStartAGameAndMovesThenStop--
---Output from testPlayerStartAGameAndPlayUntilHeWin--
+      <system-out><![CDATA[--Output from testFindCellByRowAndCol--
 ]]></system-out>
 
-      <system-err><![CDATA[--Output from testPlayerStartAGameAndThenStop--
---Output from testPlayerStartAGameAndMovesThenStop--
---Output from testPlayerStartAGameAndPlayUntilHeWin--
+      <system-err><![CDATA[--Output from testFindCellByRowAndCol--
 ]]></system-err>
 
   </testsuite>
