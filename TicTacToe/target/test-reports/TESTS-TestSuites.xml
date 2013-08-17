@@ -1,17 +1,24 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <testsuites>
-  <testsuite errors="0" failures="1" hostname="huynhlbq-PC" id="0" name="TicTacToeRunnerTests" package="tictactoe" tests="3" time="4.67" timestamp="2013-08-17T10:31:32">
+  <testsuite errors="0" failures="2" hostname="huynhlbq-PC" id="0" name="TicTacToeRunnerTests" package="tictactoe" tests="3" time="2.107" timestamp="2013-08-17T10:48:40">
       <properties />
 
-      <testcase classname="tictactoe.TicTacToeRunnerTests" name="testPlayerStartAGameAndThenStop" time="2.996" />
+      <testcase classname="tictactoe.TicTacToeRunnerTests" name="testPlayerStartAGameAndThenStop" time="1.431" />
 
-      <testcase classname="tictactoe.TicTacToeRunnerTests" name="testPlayerStartAGameAndMovesThenStop" time="0.659" />
-
-      <testcase classname="tictactoe.TicTacToeRunnerTests" name="testPlayerStartAGameAndPlayUntilHeWin" time="0.85">
+      <testcase classname="tictactoe.TicTacToeRunnerTests" name="testPlayerStartAGameAndMovesThenStop" time="0.35">
           <failure message="java.lang.AssertionError: " type="junit.framework.AssertionFailedError">junit.framework.AssertionFailedError: java.lang.AssertionError: 
-	at tictactoe.TicTacToeRunnerTests.gameHasStopped(TicTacToeRunnerTests.groovy:43)
-	at tictactoe.TicTacToeRunnerTests$gameHasStopped.callCurrent(Unknown Source)
-	at tictactoe.TicTacToeRunnerTests.testPlayerStartAGameAndPlayUntilHeWin(TicTacToeRunnerTests.groovy:103)
+	at tictactoe.TicTacToeRunnerTests.playerHasMovedTo(TicTacToeRunnerTests.groovy:53)
+	at tictactoe.TicTacToeRunnerTests$playerHasMovedTo.callCurrent(Unknown Source)
+	at tictactoe.TicTacToeRunnerTests.testPlayerStartAGameAndMovesThenStop(TicTacToeRunnerTests.groovy:76)
+</failure>
+
+      </testcase>
+
+      <testcase classname="tictactoe.TicTacToeRunnerTests" name="testPlayerStartAGameAndPlayUntilHeWin" time="0.217">
+          <failure message="java.lang.AssertionError: " type="junit.framework.AssertionFailedError">junit.framework.AssertionFailedError: java.lang.AssertionError: 
+	at tictactoe.TicTacToeRunnerTests.playerHasMovedTo(TicTacToeRunnerTests.groovy:53)
+	at tictactoe.TicTacToeRunnerTests$playerHasMovedTo.callCurrent(Unknown Source)
+	at tictactoe.TicTacToeRunnerTests.testPlayerStartAGameAndPlayUntilHeWin(TicTacToeRunnerTests.groovy:93)
 </failure>
 
       </testcase>
@@ -19,13 +26,10 @@
       <system-out><![CDATA[--Output from testPlayerStartAGameAndThenStop--
 --Output from testPlayerStartAGameAndMovesThenStop--
 BOARD IS tictactoe.Board : null
-BOARD IS tictactoe.Board : null
+game finished
 --Output from testPlayerStartAGameAndPlayUntilHeWin--
 BOARD IS tictactoe.Board : null
-BOARD IS tictactoe.Board : null
-BOARD IS tictactoe.Board : null
-BOARD IS tictactoe.Board : null
-BOARD IS tictactoe.Board : null
+game finished
 ]]></system-out>
 
       <system-err><![CDATA[--Output from testPlayerStartAGameAndThenStop--

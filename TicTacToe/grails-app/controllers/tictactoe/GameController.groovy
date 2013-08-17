@@ -29,27 +29,29 @@ class GameController {
 
     def move = {
         println("BOARD IS " + board)
-        Cell cell = boardService.findCellByRowAndCol(Integer.parseInt(params.row), Integer.parseInt(params.col),board)
+        Cell cell = boardService.findCellByRowAndCol(Integer.parseInt(params.row), Integer.parseInt(params.col), board)
         boardService.updateCell(cell, activePlayer.toString())
-        checkGameStatus()
-        render params.row + "," + params.col;
+        if (!checkGameStatus(board).contains("continue")) {
+            println("game finished")
+            render checkGameStatus(board)
+        } else {
+            println("game continue")
+            render params.row + "," + params.col;
+        }
     }
 
     def changeActivePlayer() {
         activePlayer = (activePlayer == player1) ? player2 : player1
     }
 
-    String checkGameStatus() {
+    String checkGameStatus(board) {
         //check if user win
-        if(isWinner(activePlayer))
-        {
+        if (isWinner(activePlayer)) {
             return "winner is: " + activePlayer.toString()
-        }
-        else if (isAllFieldFilled()) {
+        } else if (isAllFieldFilled(board)) {
             //game draw
             return "draw"
-        }
-        else return "continue"
+        } else return "continue"
 
     }
 
@@ -57,7 +59,7 @@ class GameController {
         return false
     }
 
-    boolean isAllFieldFilled() {
+    boolean isAllFieldFilled(board) {
         for (Cell cell : board.getAllCell()) {
             if (cell.getValue() == null)
                 return false;
