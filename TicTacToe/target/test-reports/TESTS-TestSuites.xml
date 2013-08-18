@@ -1,24 +1,19 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <testsuites>
-  <testsuite errors="0" failures="1" hostname="huynhlbq-PC" id="0" name="TicTacToeRunnerTests" package="tictactoe" tests="3" time="3.927" timestamp="2013-08-18T09:12:45">
+  <testsuite errors="0" failures="0" hostname="DELL-N4010" id="0" name="TicTacToeRunnerTests" package="tictactoe" tests="3" time="2.416" timestamp="2013-08-18T12:58:22">
       <properties />
 
-      <testcase classname="tictactoe.TicTacToeRunnerTests" name="testPlayerStartAGameAndThenStop" time="1.488" />
+      <testcase classname="tictactoe.TicTacToeRunnerTests" name="testPlayerStartAGameAndThenStop" time="1.361" />
 
-      <testcase classname="tictactoe.TicTacToeRunnerTests" name="testPlayerStartAGameAndMovesThenStop" time="1.391" />
+      <testcase classname="tictactoe.TicTacToeRunnerTests" name="testPlayerStartAGameAndMovesThenStop" time="0.349" />
 
-      <testcase classname="tictactoe.TicTacToeRunnerTests" name="testPlayerStartAGameAndPlayUntilHeWin" time="0.934">
-          <failure message="java.lang.AssertionError: " type="junit.framework.AssertionFailedError">junit.framework.AssertionFailedError: java.lang.AssertionError: 
-	at tictactoe.TicTacToeRunnerTests.gameHasStopped(TicTacToeRunnerTests.groovy:43)
-	at tictactoe.TicTacToeRunnerTests$gameHasStopped.callCurrent(Unknown Source)
-	at tictactoe.TicTacToeRunnerTests.testPlayerStartAGameAndPlayUntilHeWin(TicTacToeRunnerTests.groovy:103)
-</failure>
-
-      </testcase>
+      <testcase classname="tictactoe.TicTacToeRunnerTests" name="testPlayerStartAGameAndPlayUntilHeWin" time="0.614" />
 
       <system-out><![CDATA[--Output from testPlayerStartAGameAndThenStop--
 --Output from testPlayerStartAGameAndMovesThenStop--
 --Output from testPlayerStartAGameAndPlayUntilHeWin--
+found 3 moves
+x win
 ]]></system-out>
 
       <system-err><![CDATA[--Output from testPlayerStartAGameAndThenStop--

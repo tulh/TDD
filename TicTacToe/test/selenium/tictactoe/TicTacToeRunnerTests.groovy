@@ -79,9 +79,9 @@ class TicTacToeRunnerTests extends GroovyTestCase
         stopGame()
     }
 
-    void gameDisplaysTheWinner()
+    void gameDisplaysTheWinner(String player)
     {
-
+        assertTrue selenium.isTextPresent(player + " win")
     }
 
     @Test
@@ -99,7 +99,7 @@ class TicTacToeRunnerTests extends GroovyTestCase
         playerHasMovedTo(1, 3)
         move(3, 3)
         playerHasMovedTo(3, 3)
-        gameDisplaysTheWinner()
+        gameDisplaysTheWinner("x")
         gameHasStopped()
 
     }

@@ -3,7 +3,7 @@ package tictactoe
 class Cell {
     int row
     int col
-    Character value
+    String value
 
     static constraints = {
     }

@@ -1,9 +1,11 @@
 Testsuite: tictactoe.TicTacToeRunnerTests
-Tests run: 3, Failures: 1, Errors: 0, Time elapsed: 3.927 sec
+Tests run: 3, Failures: 0, Errors: 0, Time elapsed: 2.416 sec
 ------------- Standard Output ---------------
 --Output from testPlayerStartAGameAndThenStop--
 --Output from testPlayerStartAGameAndMovesThenStop--
 --Output from testPlayerStartAGameAndPlayUntilHeWin--
+found 3 moves
+x win
 ------------- ---------------- ---------------
 ------------- Standard Error -----------------
 --Output from testPlayerStartAGameAndThenStop--
@@ -11,13 +13,6 @@ Tests run: 3, Failures: 1, Errors: 0, Time elapsed: 3.927 sec
 --Output from testPlayerStartAGameAndPlayUntilHeWin--
 ------------- ---------------- ---------------
 
-Testcase: testPlayerStartAGameAndThenStop took 1.489 sec
-Testcase: testPlayerStartAGameAndMovesThenStop took 1.391 sec
-Testcase: testPlayerStartAGameAndPlayUntilHeWin took 0.933 sec
-	FAILED
-java.lang.AssertionError: 
-junit.framework.AssertionFailedError: java.lang.AssertionError: 
-	at tictactoe.TicTacToeRunnerTests.gameHasStopped(TicTacToeRunnerTests.groovy:43)
-	at tictactoe.TicTacToeRunnerTests$gameHasStopped.callCurrent(Unknown Source)
-	at tictactoe.TicTacToeRunnerTests.testPlayerStartAGameAndPlayUntilHeWin(TicTacToeRunnerTests.groovy:103)
-
+Testcase: testPlayerStartAGameAndThenStop took 1.361 sec
+Testcase: testPlayerStartAGameAndMovesThenStop took 0.349 sec
+Testcase: testPlayerStartAGameAndPlayUntilHeWin took 0.615 sec

@@ -27,8 +27,13 @@ class GameControllerTests extends ControllerUnitTestCase {
     }
 
     void testMove() {
-        gameController.startGame()
-        gameController.move(1,1)
+        gameController = new GameController()
+        gameController.params.player='x'
+        gameController.startGame
+        gameController.params.col=1
+        gameController.params.row=1
+        gameController.move
+
         assertEquals "Stopped", gameController.response.contentAsString
 
     }

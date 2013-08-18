@@ -1,5 +1,5 @@
 selenium {
-	slow = true									// true to run tests in slow resources mode
+	slow = false									// true to run tests in slow resources mode
 	singleWindow = true								// true for single window mode, false for multi-window mode
 	browser = "*googlechrome C:\\Program Files (x86)\\Google\\Chrome\\Application\\chrome.exe"							// can include full path to executable, default value is *firefox or *iexplore on Windows
 	url = "http://localhost:8080/"										// the base URL for tests, defaults to Grails server url

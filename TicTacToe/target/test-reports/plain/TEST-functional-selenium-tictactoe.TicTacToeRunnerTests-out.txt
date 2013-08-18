@@ -1,3 +1,5 @@
 --Output from testPlayerStartAGameAndThenStop--
 --Output from testPlayerStartAGameAndMovesThenStop--
 --Output from testPlayerStartAGameAndPlayUntilHeWin--
+found 3 moves
+x win

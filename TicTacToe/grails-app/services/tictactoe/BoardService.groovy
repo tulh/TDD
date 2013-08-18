@@ -2,11 +2,10 @@ package tictactoe
 
 class BoardService {
 
-    Board board
     static transactional = true
 
     Cell findCellByRowAndCol(int row, int col, board) {
-        for (Cell cell : board.getAllCell()) {
+        for (Cell cell : board) {
             if ((cell.row == row) && (cell.col == col)) {
                 return cell
             }
@@ -15,16 +14,15 @@ class BoardService {
     }
 
     def updateCell(Cell cell, String value) {
+        cell.setValue(value)
 
     }
 
-    Board initAllCell() {
-        board = new Board()
-
+    List<Cell> initAllCell(List<Cell> board) {
         for (int row = 1; row <= 3; row++) {
             for (int col = 1; col <= 3; col++) {
                 Cell cell = new Cell(row: row, col: col, value: null)
-                board.getAllCell().add(cell)
+                board.add(cell)
             }
         }
         return board;
