@@ -43,4 +43,9 @@ class BoardServiceTests extends GrailsUnitTestCase {
 
     }
 
+    void testSaveACell(){
+        Cell cell = new Cell(row: 1, col: 1, value: "x")
+        cell.save()
+        assertNotNull(cell.getId())
+    }
 }

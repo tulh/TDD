@@ -2,5 +2,69 @@
 --Output from testPlayerStartAGameAndMovesThenStop--
 --Output from testPlayerStartAGameAndPlayUntilHeWin--
 found 3 moves
+1 1
+2 2
+3 3
+x win
+--Output from testSave--
+--Output from testPlayerStartGameAndPlayUntilBoardIsFullAndNoOneWin--
+found 3 moves
+1 1
+2 2
+3 3
+x win
+found 3 moves
+1 1
+3 1
+2 2
+3 3
+found 3 moves
+1 1
+2 1
+3 1
+2 2
+3 3
+x win
+found 3 moves
+1 1
+2 1
+3 1
+2 2
+2 3
+3 3
+x win
+found 3 moves
+1 1
+2 1
+3 1
+2 2
+2 3
+3 3
+x win
+found 3 moves
+1 1
+2 1
+3 1
+2 2
+2 3
+3 3
+x win
+found 3 moves
+1 1
+2 1
+3 1
+2 2
+3 2
+2 3
+3 3
+x win
+found 3 moves
+1 1
+2 1
+3 1
+2 2
+3 2
+2 3
+3 3
 x win
 

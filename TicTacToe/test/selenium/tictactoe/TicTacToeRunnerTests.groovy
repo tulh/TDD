@@ -33,6 +33,11 @@ class TicTacToeRunnerTests extends GroovyTestCase
         selenium.open("http://localhost:8080/TicTacToe/game/stopGame")
     }
 
+    void save()
+    {
+        selenium.open("http://localhost:8080/TicTacToe/game/save")
+    }
+
     void gameHasStarted()
     {
         assertNotNull(selenium.getBodyText())
@@ -84,6 +89,11 @@ class TicTacToeRunnerTests extends GroovyTestCase
         assertTrue selenium.isTextPresent(player + " win")
     }
 
+    void gameDisplaysBoardFull()
+    {
+        assertTrue selenium.isTextPresent("full!")
+    }
+
     @Test
     void testPlayerStartAGameAndPlayUntilHeWin()
     {
@@ -100,6 +110,40 @@ class TicTacToeRunnerTests extends GroovyTestCase
         move(3, 3)
         playerHasMovedTo(3, 3)
         gameDisplaysTheWinner("x")
+        gameHasStopped()
+
+    }
+
+    @Test
+    void testSave() {
+        save()
+        assertNotNull(selenium.getBodyText())
+    }
+
+    @Test
+    void testPlayerStartGameAndPlayUntilBoardIsFullAndNoOneWin()
+    {
+        startGame("x")
+        gameDisplaysThePlayerMoveFirst("x")
+        move(1, 1) //x
+        playerHasMovedTo(1, 1)
+        move(3, 1) //o
+        playerHasMovedTo(3, 1)
+        move(1, 2) //x
+        playerHasMovedTo(1, 2)
+        move(2, 1)  //o
+        playerHasMovedTo(2, 1)
+        move(2, 3)  //x
+        playerHasMovedTo(2, 3)
+        move(2, 2)  //o
+        playerHasMovedTo(2, 2)
+        move(3, 1)  //x
+        playerHasMovedTo(3, 1)
+        move(3, 2)  //o
+        playerHasMovedTo(3, 2)
+        move(3, 3)  //x
+        playerHasMovedTo(3, 3)
+        gameDisplaysBoardFull()
         gameHasStopped()
 
     }

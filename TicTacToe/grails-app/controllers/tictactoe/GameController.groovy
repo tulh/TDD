@@ -12,28 +12,9 @@ class GameController
     def startGame = {
         // init board
         board = boardService.initAllCell(board)
-//        board = new ArrayList<Cell>()
-//        for (int row = 1; row <= 3; row++)
-//        {
-//            for (int col = 1; col <= 3; col++)
-//            {
-//                Cell cell = new Cell(row: row, col: col, value: null)
-//                board.add(cell)
-//            }
-//        }
+
         activePlayer = (params.player == 'x') ? X : O
         render(params.player + " move first")
-    }
-
-    Cell find(int row, int col)
-    {
-        for (Cell cell : board)
-        {
-            if (cell.row == row && cell.col == col)
-            {
-                return cell
-            }
-        }
     }
 
     def stopGame = {
@@ -44,9 +25,6 @@ class GameController
         // find & update cell's value
         Cell cell = boardService.findCellByRowAndCol(Integer.parseInt(params.row), Integer.parseInt(params.col), board)
         boardService.updateCell(cell, activePlayer)
-//        Cell cell = find(Integer.parseInt(params.row), Integer.parseInt(params.col))
-//        cell.setValue(activePlayer)
-        //Cell cell = new Cell(row: params.row, col: params.col, value: activePlayer)
         render params.row + "," + params.col
         if (isWinner(activePlayer))
         {
@@ -82,13 +60,30 @@ class GameController
                 movesHistory.add(cell)
             }
         }
-        if(movesHistory.size()==3)
+        if(movesHistory.size()>=3)
         {
             // check for 4 cases: horizontal line, vertical line, diagonal line, 2 diagonals
             println "found 3 moves"
-            return true
+            movesHistory.sort{x,y->
+                x.col <=> y.col
+            }
+            for(Cell cell: movesHistory)
+            {
+                println cell.row+ " " + cell.col
+            }
+            Cell cell1 = movesHistory.get(0)
+            Cell cell2 = movesHistory.get(1)
+            Cell cell3 = movesHistory.get(2)
+//            println(cell1.col + " " + cell1.row)
+//            println(cell2.col + " " + cell2.row)
+//            println(cell3.col + " " + cell3.row)
+            if((cell1.col==cell2.col && cell2.col==cell3.col) || (cell1.row==cell2.row && cell2.row==cell3.row)
+            || (cell1.col==1 && cell1.row==1&&cell2.col==2&&cell2.row==2&&cell3.col==3&&cell3.row==3)
+                    || (cell1.col==1&&cell1.row==3&&cell2.col==2 && cell2.row==2&&cell3.col==3&&cell3.row==1))
+            {
+                return true
+            }
         }
-
         return false
     }
 
@@ -102,5 +97,11 @@ class GameController
             }
         }
         return true
+    }
+
+    def save = {
+        Cell cell = new Cell(row: 1, col: 1, value: "x")
+        cell.save(flush: true)
+        render cell.getId()
     }
 }
