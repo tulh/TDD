@@ -1,8 +1,4 @@
 --Output from testPlayerStartAGameAndThenStop--
 --Output from testPlayerStartAGameAndMovesThenStop--
-BOARD IS tictactoe.Board : null
-game finished
 --Output from testPlayerStartAGameAndPlayUntilHeWin--
-BOARD IS tictactoe.Board : null
-game finished
 

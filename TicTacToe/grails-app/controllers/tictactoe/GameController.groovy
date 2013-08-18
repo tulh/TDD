@@ -1,25 +1,12 @@
 package tictactoe
 
 class GameController {
-    def BoardService boardService = new BoardService()
-    def Board board = new Board()
-    def Character player1
-    def Character player2
+    def List<Cell> cellHistories
     def Character activePlayer
-    boolean allCellFilled
 
     def startGame = {
-        if (params.player == 'x') {
-            player1 = Character.X
-            player2 = Character.O
-        } else {
-            player1 = Character.O
-            player2 = Character.X
-        }
-        //set player1 active
-        activePlayer = player1
-        //boardService = new BoardService()
-        board = boardService.initAllCell()
+        cellHistories = new ArrayList<Cell>()
+        activePlayer = (params.player == 'x') ? Character.X : Character.O
         render(params.player + " move first")
     }
 
@@ -28,42 +15,31 @@ class GameController {
     }
 
     def move = {
-        println("BOARD IS " + board)
-        Cell cell = boardService.findCellByRowAndCol(Integer.parseInt(params.row), Integer.parseInt(params.col), board)
-        boardService.updateCell(cell, activePlayer.toString())
-        if (!checkGameStatus(board).contains("continue")) {
-            println("game finished")
-            render checkGameStatus(board)
+        Cell cell = new Cell(row: params.row, col: params.col, value: activePlayer)
+        render params.row + "," + params.col
+        cellHistories.add(cell)
+        if (isWinner(activePlayer)) {
+            println(activePlayer + " win")
+            render(activePlayer + " win")
+        } else if (isBoardFull()) {
+            println("full!")
+            render("full!")
+            stopGame()
         } else {
-            println("game continue")
-            render params.row + "," + params.col;
+            changeActivePlayer()
         }
     }
 
     def changeActivePlayer() {
-        activePlayer = (activePlayer == player1) ? player2 : player1
-    }
-
-    String checkGameStatus(board) {
-        //check if user win
-        if (isWinner(activePlayer)) {
-            return "winner is: " + activePlayer.toString()
-        } else if (isAllFieldFilled(board)) {
-            //game draw
-            return "draw"
-        } else return "continue"
-
+        activePlayer = (activePlayer == Character.X) ? Character.O : Character.X
     }
 
     boolean isWinner(Character character) {
+        //todo loop cellHistories to check win or not
         return false
     }
 
-    boolean isAllFieldFilled(board) {
-        for (Cell cell : board.getAllCell()) {
-            if (cell.getValue() == null)
-                return false;
-        }
-        return true
+    boolean isBoardFull() {
+        return (cellHistories.size() == 9)
     }
 }

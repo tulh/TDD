@@ -1,13 +1,9 @@
 Testsuite: tictactoe.TicTacToeRunnerTests
-Tests run: 3, Failures: 2, Errors: 0, Time elapsed: 2.107 sec
+Tests run: 3, Failures: 1, Errors: 0, Time elapsed: 3.927 sec
 ------------- Standard Output ---------------
 --Output from testPlayerStartAGameAndThenStop--
 --Output from testPlayerStartAGameAndMovesThenStop--
-BOARD IS tictactoe.Board : null
-game finished
 --Output from testPlayerStartAGameAndPlayUntilHeWin--
-BOARD IS tictactoe.Board : null
-game finished
 ------------- ---------------- ---------------
 ------------- Standard Error -----------------
 --Output from testPlayerStartAGameAndThenStop--
@@ -15,20 +11,13 @@ game finished
 --Output from testPlayerStartAGameAndPlayUntilHeWin--
 ------------- ---------------- ---------------
 
-Testcase: testPlayerStartAGameAndThenStop took 1.431 sec
-Testcase: testPlayerStartAGameAndMovesThenStop took 0.349 sec
+Testcase: testPlayerStartAGameAndThenStop took 1.489 sec
+Testcase: testPlayerStartAGameAndMovesThenStop took 1.391 sec
+Testcase: testPlayerStartAGameAndPlayUntilHeWin took 0.933 sec
 	FAILED
 java.lang.AssertionError: 
 junit.framework.AssertionFailedError: java.lang.AssertionError: 
-	at tictactoe.TicTacToeRunnerTests.playerHasMovedTo(TicTacToeRunnerTests.groovy:53)
-	at tictactoe.TicTacToeRunnerTests$playerHasMovedTo.callCurrent(Unknown Source)
-	at tictactoe.TicTacToeRunnerTests.testPlayerStartAGameAndMovesThenStop(TicTacToeRunnerTests.groovy:76)
-
-Testcase: testPlayerStartAGameAndPlayUntilHeWin took 0.216 sec
-	FAILED
-java.lang.AssertionError: 
-junit.framework.AssertionFailedError: java.lang.AssertionError: 
-	at tictactoe.TicTacToeRunnerTests.playerHasMovedTo(TicTacToeRunnerTests.groovy:53)
-	at tictactoe.TicTacToeRunnerTests$playerHasMovedTo.callCurrent(Unknown Source)
-	at tictactoe.TicTacToeRunnerTests.testPlayerStartAGameAndPlayUntilHeWin(TicTacToeRunnerTests.groovy:93)
+	at tictactoe.TicTacToeRunnerTests.gameHasStopped(TicTacToeRunnerTests.groovy:43)
+	at tictactoe.TicTacToeRunnerTests$gameHasStopped.callCurrent(Unknown Source)
+	at tictactoe.TicTacToeRunnerTests.testPlayerStartAGameAndPlayUntilHeWin(TicTacToeRunnerTests.groovy:103)
 
