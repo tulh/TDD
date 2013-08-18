@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<testsuite errors="0" failures="2" hostname="huynhlbq-PC" name="tictactoe.TicTacToeRunnerTests" tests="3" time="2.107" timestamp="2013-08-17T10:48:40">
+  <properties />
+  <testcase classname="tictactoe.TicTacToeRunnerTests" name="testPlayerStartAGameAndThenStop" time="1.431" />
+  <testcase classname="tictactoe.TicTacToeRunnerTests" name="testPlayerStartAGameAndMovesThenStop" time="0.35">
+    <failure message="java.lang.AssertionError: " type="junit.framework.AssertionFailedError">junit.framework.AssertionFailedError: java.lang.AssertionError: 
+	at tictactoe.TicTacToeRunnerTests.playerHasMovedTo(TicTacToeRunnerTests.groovy:53)
+	at tictactoe.TicTacToeRunnerTests$playerHasMovedTo.callCurrent(Unknown Source)
+	at tictactoe.TicTacToeRunnerTests.testPlayerStartAGameAndMovesThenStop(TicTacToeRunnerTests.groovy:76)
+</failure>
+  </testcase>
+  <testcase classname="tictactoe.TicTacToeRunnerTests" name="testPlayerStartAGameAndPlayUntilHeWin" time="0.217">
+    <failure message="java.lang.AssertionError: " type="junit.framework.AssertionFailedError">junit.framework.AssertionFailedError: java.lang.AssertionError: 
+	at tictactoe.TicTacToeRunnerTests.playerHasMovedTo(TicTacToeRunnerTests.groovy:53)
+	at tictactoe.TicTacToeRunnerTests$playerHasMovedTo.callCurrent(Unknown Source)
+	at tictactoe.TicTacToeRunnerTests.testPlayerStartAGameAndPlayUntilHeWin(TicTacToeRunnerTests.groovy:93)
+</failure>
+  </testcase>
+  <system-out><![CDATA[--Output from testPlayerStartAGameAndThenStop--
+--Output from testPlayerStartAGameAndMovesThenStop--
+BOARD IS tictactoe.Board : null
+game finished
+--Output from testPlayerStartAGameAndPlayUntilHeWin--
+BOARD IS tictactoe.Board : null
+game finished
+]]></system-out>
+  <system-err><![CDATA[--Output from testPlayerStartAGameAndThenStop--
+--Output from testPlayerStartAGameAndMovesThenStop--
+--Output from testPlayerStartAGameAndPlayUntilHeWin--
+]]></system-err>
+</testsuite>
