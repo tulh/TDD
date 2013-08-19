@@ -1,75 +1,30 @@
 Testsuite: tictactoe.TicTacToeRunnerTests
-Tests run: 5, Failures: 1, Errors: 0, Time elapsed: 3.789 sec
+Tests run: 5, Failures: 1, Errors: 0, Time elapsed: 3.968 sec
 ------------- Standard Output ---------------
 --Output from testPlayerStartAGameAndThenStop--
+FULL!!!
 --Output from testPlayerStartAGameAndMovesThenStop--
+x
+o
 --Output from testPlayerStartAGameAndPlayUntilHeWin--
-found 3 moves
-1 1
-2 2
-3 3
+x
+o
+x
+o
+x
 x win
 --Output from testSave--
 --Output from testPlayerStartGameAndPlayUntilBoardIsFullAndNoOneWin--
-found 3 moves
-1 1
-2 2
-3 3
-x win
-found 3 moves
-1 1
-3 1
-2 2
-3 3
-found 3 moves
-1 1
-2 1
-3 1
-2 2
-3 3
-x win
-found 3 moves
-1 1
-2 1
-3 1
-2 2
-2 3
-3 3
-x win
-found 3 moves
-1 1
-2 1
-3 1
-2 2
-2 3
-3 3
-x win
-found 3 moves
-1 1
-2 1
-3 1
-2 2
-2 3
-3 3
-x win
-found 3 moves
-1 1
-2 1
-3 1
-2 2
-3 2
-2 3
-3 3
-x win
-found 3 moves
-1 1
-2 1
-3 1
-2 2
-3 2
-2 3
-3 3
-x win
+x
+o
+x
+o
+x
+o
+x
+o
+x
+3,3
 ------------- ---------------- ---------------
 ------------- Standard Error -----------------
 --Output from testPlayerStartAGameAndThenStop--
@@ -79,15 +34,15 @@ x win
 --Output from testPlayerStartGameAndPlayUntilBoardIsFullAndNoOneWin--
 ------------- ---------------- ---------------
 
-Testcase: testPlayerStartAGameAndThenStop took 1.259 sec
-Testcase: testPlayerStartAGameAndMovesThenStop took 0.393 sec
-Testcase: testPlayerStartAGameAndPlayUntilHeWin took 0.527 sec
-Testcase: testSave took 0.727 sec
-Testcase: testPlayerStartGameAndPlayUntilBoardIsFullAndNoOneWin took 0.788 sec
+Testcase: testPlayerStartAGameAndThenStop took 1.296 sec
+Testcase: testPlayerStartAGameAndMovesThenStop took 0.354 sec
+Testcase: testPlayerStartAGameAndPlayUntilHeWin took 0.525 sec
+Testcase: testSave took 0.813 sec
+Testcase: testPlayerStartGameAndPlayUntilBoardIsFullAndNoOneWin took 0.89 sec
 	FAILED
 java.lang.AssertionError: 
 junit.framework.AssertionFailedError: java.lang.AssertionError: 
-	at tictactoe.TicTacToeRunnerTests.gameDisplaysBoardFull(TicTacToeRunnerTests.groovy:94)
-	at tictactoe.TicTacToeRunnerTests$gameDisplaysBoardFull.callCurrent(Unknown Source)
-	at tictactoe.TicTacToeRunnerTests.testPlayerStartGameAndPlayUntilBoardIsFullAndNoOneWin(TicTacToeRunnerTests.groovy:146)
+	at tictactoe.TicTacToeRunnerTests.gameHasStopped(TicTacToeRunnerTests.groovy:48)
+	at tictactoe.TicTacToeRunnerTests$gameHasStopped.callCurrent(Unknown Source)
+	at tictactoe.TicTacToeRunnerTests.testPlayerStartGameAndPlayUntilBoardIsFullAndNoOneWin(TicTacToeRunnerTests.groovy:147)
 

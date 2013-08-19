@@ -18,6 +18,7 @@ class GameController
     }
 
     def stopGame = {
+        board = new ArrayList<Cell>()
         render("Stopped")
     }
 
@@ -26,10 +27,11 @@ class GameController
         Cell cell = boardService.findCellByRowAndCol(Integer.parseInt(params.row), Integer.parseInt(params.col), board)
         boardService.updateCell(cell, activePlayer)
         render params.row + "," + params.col
-        if (isWinner(activePlayer))
+        println activePlayer
+        if (getWinner()!=null)
         {
-            println(activePlayer + " win")
-            render(activePlayer + " win")
+            println getWinner() + " win"
+            render(getWinner() + " win")
             stopGame()
         }
         else if (isBoardFull())
@@ -38,10 +40,8 @@ class GameController
             render("full!")
             stopGame()
         }
-        else
-        {
-            changeActivePlayer()
-        }
+
+        changeActivePlayer()
     }
 
     def changeActivePlayer()
@@ -49,45 +49,7 @@ class GameController
         activePlayer = (activePlayer == X) ? O : X
     }
 
-    boolean isWinner(String player)
-    {
-        //todo loop cellHistories to check win or not
-        List<Cell> movesHistory = new ArrayList<Cell>()
-        for (Cell cell : board)
-        {
-            if(cell.value==player)
-            {
-                movesHistory.add(cell)
-            }
-        }
-        if(movesHistory.size()>=3)
-        {
-            // check for 4 cases: horizontal line, vertical line, diagonal line, 2 diagonals
-            println "found 3 moves"
-            movesHistory.sort{x,y->
-                x.col <=> y.col
-            }
-            for(Cell cell: movesHistory)
-            {
-                println cell.row+ " " + cell.col
-            }
-            Cell cell1 = movesHistory.get(0)
-            Cell cell2 = movesHistory.get(1)
-            Cell cell3 = movesHistory.get(2)
-//            println(cell1.col + " " + cell1.row)
-//            println(cell2.col + " " + cell2.row)
-//            println(cell3.col + " " + cell3.row)
-            if((cell1.col==cell2.col && cell2.col==cell3.col) || (cell1.row==cell2.row && cell2.row==cell3.row)
-            || (cell1.col==1 && cell1.row==1&&cell2.col==2&&cell2.row==2&&cell3.col==3&&cell3.row==3)
-                    || (cell1.col==1&&cell1.row==3&&cell2.col==2 && cell2.row==2&&cell3.col==3&&cell3.row==1))
-            {
-                return true
-            }
-        }
-        return false
-    }
-
-    boolean isBoardFull()
+    static boolean isBoardFull()
     {
         for (Cell cell : board)
         {
@@ -96,9 +58,40 @@ class GameController
                 return false
             }
         }
+        println "FULL!!!"
         return true
     }
 
+    String getWinner() {
+        Cell cell1 = boardService.findCellByRowAndCol(1,1,board)
+        Cell cell2 = boardService.findCellByRowAndCol(1,2,board)
+        Cell cell3 = boardService.findCellByRowAndCol(1,3,board)
+        Cell cell4 = boardService.findCellByRowAndCol(2,1,board)
+        Cell cell5 = boardService.findCellByRowAndCol(2,2,board)
+        Cell cell6 = boardService.findCellByRowAndCol(2,3,board)
+        Cell cell7 = boardService.findCellByRowAndCol(3,1,board)
+        Cell cell8 = boardService.findCellByRowAndCol(3,2,board)
+        Cell cell9 = boardService.findCellByRowAndCol(3,3,board)
+        // horizontal line
+        if(isAllLike(cell1, cell2, cell3)) return cell1.value
+        if(isAllLike(cell4, cell5, cell6)) return cell4.value
+        if(isAllLike(cell7, cell8, cell9)) return cell7.value
+        // vertical line
+        if(isAllLike(cell1, cell4, cell7)) return cell1.value
+        if(isAllLike(cell2, cell5, cell8)) return cell2.value
+        if(isAllLike(cell3, cell6, cell9)) return cell3.value
+        // left diagonal line
+        if(isAllLike(cell1, cell5, cell9)) return cell1.value
+        // right diagonal line
+        if(isAllLike(cell7, cell5, cell3)) return cell7.value
+        return null
+    }
+
+    private boolean isAllLike(Cell cell1, Cell cell2, Cell cell3)
+    {
+        return (cell1.value!=null)&&(cell2.value!=null)&&(cell3.value!=null)&&
+                (cell1.value == cell2.value)&&(cell1.value==cell3.value)&&(cell2.value==cell3.value)
+    }
     def save = {
         Cell cell = new Cell(row: 1, col: 1, value: "x")
         cell.save(flush: true)

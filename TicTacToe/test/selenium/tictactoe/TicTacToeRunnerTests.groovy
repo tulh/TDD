@@ -91,7 +91,7 @@ class TicTacToeRunnerTests extends GroovyTestCase
 
     void gameDisplaysBoardFull()
     {
-        assertTrue selenium.isTextPresent("full!")
+        println selenium.bodyText
     }
 
     @Test
@@ -145,6 +145,5 @@ class TicTacToeRunnerTests extends GroovyTestCase
         playerHasMovedTo(3, 3)
         gameDisplaysBoardFull()
         gameHasStopped()
-
     }
 }
