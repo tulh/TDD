@@ -1,5 +1,4 @@
 --Output from testPlayerStartAGameAndThenStop--
-FULL!!!
 --Output from testPlayerStartAGameAndMovesThenStop--
 x
 o

@@ -1,8 +1,7 @@
 Testsuite: tictactoe.TicTacToeRunnerTests
-Tests run: 5, Failures: 1, Errors: 0, Time elapsed: 3.968 sec
+Tests run: 5, Failures: 1, Errors: 0, Time elapsed: 3.878 sec
 ------------- Standard Output ---------------
 --Output from testPlayerStartAGameAndThenStop--
-FULL!!!
 --Output from testPlayerStartAGameAndMovesThenStop--
 x
 o
@@ -34,11 +33,11 @@ x
 --Output from testPlayerStartGameAndPlayUntilBoardIsFullAndNoOneWin--
 ------------- ---------------- ---------------
 
-Testcase: testPlayerStartAGameAndThenStop took 1.296 sec
-Testcase: testPlayerStartAGameAndMovesThenStop took 0.354 sec
-Testcase: testPlayerStartAGameAndPlayUntilHeWin took 0.525 sec
-Testcase: testSave took 0.813 sec
-Testcase: testPlayerStartGameAndPlayUntilBoardIsFullAndNoOneWin took 0.89 sec
+Testcase: testPlayerStartAGameAndThenStop took 0.902 sec
+Testcase: testPlayerStartAGameAndMovesThenStop took 0.325 sec
+Testcase: testPlayerStartAGameAndPlayUntilHeWin took 0.549 sec
+Testcase: testSave took 1.152 sec
+Testcase: testPlayerStartGameAndPlayUntilBoardIsFullAndNoOneWin took 0.859 sec
 	FAILED
 java.lang.AssertionError: 
 junit.framework.AssertionFailedError: java.lang.AssertionError: 
