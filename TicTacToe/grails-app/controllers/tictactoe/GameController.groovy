@@ -1,10 +1,16 @@
 package tictactoe
 
+import grails.converters.JSON
+
 class GameController
 {
     def boardService
     static List<Cell> board = new ArrayList<Cell>()
     static String activePlayer
+
+    static String firstPlayer=""
+    static String winnerPlayer=""
+    static String moves=""
 
     final static String X = "x"
     final static String O = "o"
@@ -14,11 +20,15 @@ class GameController
         board = boardService.initAllCell(board)
 
         activePlayer = (params.player == 'x') ? X : O
+        firstPlayer=activePlayer
         render(params.player + " move first")
     }
 
     def stopGame = {
         board = new ArrayList<Cell>()
+        firstPlayer=""
+        winnerPlayer=""
+        moves=""
         render("Stopped")
     }
 
@@ -26,14 +36,15 @@ class GameController
         // find & update cell's value
         Cell cell = boardService.findCellByRowAndCol(Integer.parseInt(params.row), Integer.parseInt(params.col), board)
         boardService.updateCell(cell, activePlayer)
+        moves += params.row + "_" + params.col + ", "
         render params.row + "," + params.col
         println activePlayer
         def winner = boardService.getWinner(board)
         def fullBoard = boardService.isBoardFull(board)
         if(winner != null)
         {
-            println winner + " win"
-            render(winner + " win")
+            winnerPlayer = winner
+            showGameHistory()
             stopGame()
         }
         if(fullBoard)
@@ -51,9 +62,9 @@ class GameController
         activePlayer = (activePlayer == X) ? O : X
     }
 
-    def save = {
-        Cell cell = new Cell(row: 1, col: 1, value: "x")
-        cell.save(flush: true)
-        render cell.getId()
+    def showGameHistory() {
+        def game = boardService.saveGame(firstPlayer, winnerPlayer, moves)
+        render "(${[game : game] as JSON});"
     }
+
 }

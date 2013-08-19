@@ -5,6 +5,9 @@ import org.junit.After
 import org.junit.Before
 import org.junit.Test
 
+import java.util.regex.Matcher
+import java.util.regex.Pattern
+
 import static org.junit.Assert.assertNotNull
 import static org.junit.Assert.assertTrue
 
@@ -86,7 +89,7 @@ class TicTacToeRunnerTests extends GroovyTestCase
 
     void gameDisplaysTheWinner(String player)
     {
-        assertTrue selenium.isTextPresent(player + " win")
+        assertTrue selenium.getBodyText().contains("\"winner\":\"$player\"")
     }
 
     void gameDisplaysBoardFull()
@@ -94,6 +97,11 @@ class TicTacToeRunnerTests extends GroovyTestCase
         println selenium.bodyText
     }
 
+    void gameDisplaysHistory()
+    {
+        println selenium.getBodyText()
+        assertTrue selenium.getBodyText().contains("\"moves\"")
+    }
     @Test
     void testPlayerStartAGameAndPlayUntilHeWin()
     {
@@ -115,10 +123,18 @@ class TicTacToeRunnerTests extends GroovyTestCase
     }
 
     @Test
-    void testSave() {
-        save()
-        assertNotNull(selenium.getBodyText())
+    void testShowGameHistoryWhenWin()
+    {
+        startGame("x")
+        gameDisplaysThePlayerMoveFirst("x")
+        move(1, 1)
+        move(1, 2)
+        move(2, 2)
+        move(1, 3)
+        move(3, 3)
+        gameDisplaysHistory()
     }
+
 
     @Test
     void testPlayerStartGameAndPlayUntilBoardIsFullAndNoOneWin()

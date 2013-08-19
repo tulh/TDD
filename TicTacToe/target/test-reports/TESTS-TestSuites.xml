@@ -1,14 +1,60 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <testsuites>
-  <testsuite errors="0" failures="0" hostname="DELL-N4010" id="0" name="BoardServiceTests" package="tictactoe" tests="1" time="0.265" timestamp="2013-08-19T03:09:39">
+  <testsuite errors="0" failures="1" hostname="DELL-N4010" id="0" name="TicTacToeRunnerTests" package="tictactoe" tests="5" time="4.232" timestamp="2013-08-19T09:05:57">
       <properties />
 
-      <testcase classname="tictactoe.BoardServiceTests" name="testGetWinner" time="0.245" />
+      <testcase classname="tictactoe.TicTacToeRunnerTests" name="testPlayerStartAGameAndThenStop" time="1.28" />
 
-      <system-out><![CDATA[--Output from testGetWinner--
+      <testcase classname="tictactoe.TicTacToeRunnerTests" name="testPlayerStartAGameAndMovesThenStop" time="0.288" />
+
+      <testcase classname="tictactoe.TicTacToeRunnerTests" name="testPlayerStartAGameAndPlayUntilHeWin" time="1.25" />
+
+      <testcase classname="tictactoe.TicTacToeRunnerTests" name="testShowGameHistoryWhenWin" time="0.525" />
+
+      <testcase classname="tictactoe.TicTacToeRunnerTests" name="testPlayerStartGameAndPlayUntilBoardIsFullAndNoOneWin" time="0.776">
+          <failure message="java.lang.AssertionError: " type="junit.framework.AssertionFailedError">junit.framework.AssertionFailedError: java.lang.AssertionError: 
+	at tictactoe.TicTacToeRunnerTests.gameHasStopped(TicTacToeRunnerTests.groovy:51)
+	at tictactoe.TicTacToeRunnerTests$gameHasStopped.callCurrent(Unknown Source)
+	at tictactoe.TicTacToeRunnerTests.testPlayerStartGameAndPlayUntilBoardIsFullAndNoOneWin(TicTacToeRunnerTests.groovy:163)
+</failure>
+
+      </testcase>
+
+      <system-out><![CDATA[--Output from testPlayerStartAGameAndThenStop--
+--Output from testPlayerStartAGameAndMovesThenStop--
+x
+o
+--Output from testPlayerStartAGameAndPlayUntilHeWin--
+x
+o
+x
+o
+x
+--Output from testShowGameHistoryWhenWin--
+x
+o
+x
+o
+x
+3,3({"game":{"class":"tictactoe.Game","id":2,"firstPlayer":"x","moves":"1_1, 1_2, 2_2, 1_3, 3_3, ","winner":"x"}});Stopped
+--Output from testPlayerStartGameAndPlayUntilBoardIsFullAndNoOneWin--
+x
+o
+x
+o
+x
+o
+x
+o
+x
+3,3
 ]]></system-out>
 
-      <system-err><![CDATA[--Output from testGetWinner--
+      <system-err><![CDATA[--Output from testPlayerStartAGameAndThenStop--
+--Output from testPlayerStartAGameAndMovesThenStop--
+--Output from testPlayerStartAGameAndPlayUntilHeWin--
+--Output from testShowGameHistoryWhenWin--
+--Output from testPlayerStartGameAndPlayUntilBoardIsFullAndNoOneWin--
 ]]></system-err>
 
   </testsuite>

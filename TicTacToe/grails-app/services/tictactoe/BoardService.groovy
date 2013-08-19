@@ -71,4 +71,11 @@ class BoardService {
         }
         return board;
     }
+
+    Game saveGame(def firstPlayer, def winnerPlayer, def moves)
+    {
+        Game game = new Game(firstPlayer: firstPlayer, winner: winnerPlayer, moves: moves)
+        game.save(flush: true)
+        return game
+    }
 }
