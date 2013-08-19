@@ -1,55 +1,14 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <testsuites>
-  <testsuite errors="0" failures="1" hostname="DELL-N4010" id="0" name="TicTacToeRunnerTests" package="tictactoe" tests="5" time="3.878" timestamp="2013-08-19T02:41:20">
+  <testsuite errors="0" failures="0" hostname="DELL-N4010" id="0" name="BoardServiceTests" package="tictactoe" tests="1" time="0.265" timestamp="2013-08-19T03:09:39">
       <properties />
 
-      <testcase classname="tictactoe.TicTacToeRunnerTests" name="testPlayerStartAGameAndThenStop" time="0.902" />
+      <testcase classname="tictactoe.BoardServiceTests" name="testGetWinner" time="0.245" />
 
-      <testcase classname="tictactoe.TicTacToeRunnerTests" name="testPlayerStartAGameAndMovesThenStop" time="0.325" />
-
-      <testcase classname="tictactoe.TicTacToeRunnerTests" name="testPlayerStartAGameAndPlayUntilHeWin" time="0.549" />
-
-      <testcase classname="tictactoe.TicTacToeRunnerTests" name="testSave" time="1.152" />
-
-      <testcase classname="tictactoe.TicTacToeRunnerTests" name="testPlayerStartGameAndPlayUntilBoardIsFullAndNoOneWin" time="0.859">
-          <failure message="java.lang.AssertionError: " type="junit.framework.AssertionFailedError">junit.framework.AssertionFailedError: java.lang.AssertionError: 
-	at tictactoe.TicTacToeRunnerTests.gameHasStopped(TicTacToeRunnerTests.groovy:48)
-	at tictactoe.TicTacToeRunnerTests$gameHasStopped.callCurrent(Unknown Source)
-	at tictactoe.TicTacToeRunnerTests.testPlayerStartGameAndPlayUntilBoardIsFullAndNoOneWin(TicTacToeRunnerTests.groovy:147)
-</failure>
-
-      </testcase>
-
-      <system-out><![CDATA[--Output from testPlayerStartAGameAndThenStop--
---Output from testPlayerStartAGameAndMovesThenStop--
-x
-o
---Output from testPlayerStartAGameAndPlayUntilHeWin--
-x
-o
-x
-o
-x
-x win
---Output from testSave--
---Output from testPlayerStartGameAndPlayUntilBoardIsFullAndNoOneWin--
-x
-o
-x
-o
-x
-o
-x
-o
-x
-3,3
+      <system-out><![CDATA[--Output from testGetWinner--
 ]]></system-out>
 
-      <system-err><![CDATA[--Output from testPlayerStartAGameAndThenStop--
---Output from testPlayerStartAGameAndMovesThenStop--
---Output from testPlayerStartAGameAndPlayUntilHeWin--
---Output from testSave--
---Output from testPlayerStartGameAndPlayUntilBoardIsFullAndNoOneWin--
+      <system-err><![CDATA[--Output from testGetWinner--
 ]]></system-err>
 
   </testsuite>

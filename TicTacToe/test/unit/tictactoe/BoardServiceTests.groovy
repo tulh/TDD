@@ -43,9 +43,40 @@ class BoardServiceTests extends GrailsUnitTestCase {
 
     }
 
-    void testSaveACell(){
-        Cell cell = new Cell(row: 1, col: 1, value: "x")
-        cell.save()
-        assertNotNull(cell.getId())
+    void testIsBoardFull()
+    {
+        List<Cell> board = new ArrayList<Cell>()
+        boardService = new BoardService()
+        board = boardService.initAllCell(board)
+        def full = boardService.isBoardFull(board)
+        assertNotSame(true, full)
+        boardService.updateCell(boardService.findCellByRowAndCol(1,1,board), "x")
+        boardService.updateCell(boardService.findCellByRowAndCol(1,2,board), "x")
+        boardService.updateCell(boardService.findCellByRowAndCol(1,3,board), "o")
+        boardService.updateCell(boardService.findCellByRowAndCol(2,1,board), "o")
+        boardService.updateCell(boardService.findCellByRowAndCol(2,2,board), "o")
+        boardService.updateCell(boardService.findCellByRowAndCol(2,3,board), "x")
+        boardService.updateCell(boardService.findCellByRowAndCol(3,1,board), "o")
+        boardService.updateCell(boardService.findCellByRowAndCol(3,2,board), "x")
+        boardService.updateCell(boardService.findCellByRowAndCol(3,3,board), "x")
+        assertTrue(boardService.isBoardFull(board))
+    }
+
+    void testGetWinner()
+    {
+        List<Cell> board = new ArrayList<Cell>()
+        boardService = new BoardService()
+        board = boardService.initAllCell(board)
+
+        boardService.updateCell(boardService.findCellByRowAndCol(1,1,board), "x")
+        boardService.updateCell(boardService.findCellByRowAndCol(1,2,board), "x")
+        boardService.updateCell(boardService.findCellByRowAndCol(1,3,board), "o")
+        boardService.updateCell(boardService.findCellByRowAndCol(2,1,board), "o")
+        boardService.updateCell(boardService.findCellByRowAndCol(2,2,board), "o")
+        boardService.updateCell(boardService.findCellByRowAndCol(2,3,board), "x")
+        boardService.updateCell(boardService.findCellByRowAndCol(3,1,board), "o")
+        boardService.updateCell(boardService.findCellByRowAndCol(3,2,board), "x")
+        boardService.updateCell(boardService.findCellByRowAndCol(3,3,board), "x")
+        assertEquals("o", boardService.getWinner(board))
     }
 }
