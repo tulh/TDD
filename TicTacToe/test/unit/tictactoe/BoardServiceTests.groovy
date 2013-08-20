@@ -79,4 +79,13 @@ class BoardServiceTests extends GrailsUnitTestCase {
         boardService.updateCell(boardService.findCellByRowAndCol(3,3,board), "x")
         assertEquals("o", boardService.getWinner(board))
     }
+
+    void testSaveGame()
+    {
+        boardService = new BoardService()
+        Game game = mockDomain(Game)
+        game = boardService.saveGame("x","o","1_1,2_2,3_3,3_2,2_3")
+        assertNotNull(game)
+        assertNotNull(game.getId())
+    }
 }

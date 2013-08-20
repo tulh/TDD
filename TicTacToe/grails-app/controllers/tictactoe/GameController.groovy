@@ -11,6 +11,7 @@ class GameController
     static String firstPlayer=""
     static String winnerPlayer=""
     static String moves=""
+    static int countMove=0
 
     final static String X = "x"
     final static String O = "o"
@@ -29,6 +30,7 @@ class GameController
         firstPlayer=""
         winnerPlayer=""
         moves=""
+        countMove=0
         render("Stopped")
     }
 
@@ -36,20 +38,21 @@ class GameController
         // find & update cell's value
         Cell cell = boardService.findCellByRowAndCol(Integer.parseInt(params.row), Integer.parseInt(params.col), board)
         boardService.updateCell(cell, activePlayer)
+        countMove++
         moves += params.row + "_" + params.col + ", "
         render params.row + "," + params.col
         println activePlayer
         def winner = boardService.getWinner(board)
-        def fullBoard = boardService.isBoardFull(board)
+
         if(winner != null)
         {
             winnerPlayer = winner
             showGameHistory()
             stopGame()
         }
-        if(fullBoard)
+        if(countMove==9)
         {
-            println "fullBoard: " + fullBoard
+            println "fullBoard: " + countMove
             render("full!")
             stopGame()
         }
